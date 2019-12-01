@@ -4,8 +4,8 @@ from urllib.parse import urlparse
 import os 
 import re
 
-username = #Github Username here 
-token = #Github API Key here
+username = os.environ.get('Githubuser')
+token = os.environ.get('GithubAPIKEY')
 
 
 def readFileRepo():

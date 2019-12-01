@@ -4,8 +4,8 @@ from urllib.parse import urlparse
 import os 
 from operator import add 
 
-username = #Github Username
-token = #Github API KEY 
+username = os.environ.get('Githubuser')
+token = os.environ.get('GithubAPIKEY')
 totalCommitCount = 0
 masterarray = {}
 
