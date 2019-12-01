@@ -37,32 +37,48 @@ def getRepos (CoreRepo):
     CoreRepo = CoreRepo[1]
     print('Processing ' + CoreRepo)
         
-
-
-    try:
-        reposAvail = requests.get('https://api.github.com/orgs/' + CoreRepo + '/repos', auth=(username,token))
-    except requests.exceptions.RequestException:  # This is the correct syntax
-        exit() 
+   #work out the page count    
+    if requests.get('https://api.github.com/orgs/' + CoreRepo + '/repos?per_page=100&page=' + str(requestloopcounter), auth=(username,token)).links:
+        pagecount = requests.get('https://api.github.com/orgs/' + CoreRepo + '/repos?per_page=100&page=' + str(requestloopcounter), auth=(username,token)).links['last']['url']
+        pagecount = re.split("&page=", pagecount)[1]
+        requestloopcounter = int(pagecount)
+        pass
+    else:
+        requestloopcounter = 1
+        pass
     
-    if reposAvail.status_code == 404: #we need to check for non organistations using this  GET /users/:username/repos
+
+    
+    while paginationcounter <= requestloopcounter :
+    
         try:
-            reposAvail = requests.get('https://api.github.com/users/' + CoreRepo + '/repos', auth=(username,token))
-        except requests.exceptions.RequestException:
+            reposAvail = requests.get('https://api.github.com/orgs/' + CoreRepo + '/repos?per_page=100&page=' + str(paginationcounter), auth=(username,token))
+        except requests.exceptions.RequestException:  # This is the correct syntax
             exit() 
+    
+        if reposAvail.status_code == 404: #we need to check for non organistations using this  GET /users/:username/repos
+            try:
+                reposAvail = requests.get('https://api.github.com/users/' + CoreRepo + '/repos?per_page=100&page=' + str(paginationcounter), auth=(username,token))
+            except requests.exceptions.RequestException:
+                exit() 
+            pass
+
+    
+
+
+        reposAvail = json.loads(reposAvail.text) #Load out the collected response and parse to json
+        while len(reposAvail) != counter:
+            repoArray.append(reposAvail[counter]["name"])
+            counter += 1
+            pass
+
+            nameArray[CoreRepo] = repoArray
+
+        paginationcounter += 1
+        counter = 0
         pass
-
-
-    reposAvail = json.loads(reposAvail.text) #Load out the collected response and parse to json
-    while len(reposAvail) != counter:
-        repoArray.append(reposAvail[counter]["name"])
-        counter += 1
-        pass
-
-        nameArray[CoreRepo] = repoArray
-
 
     nameArray['URL'] = CoreRepo
-
     if not repoName:
         nameArray['Common Name'] = CoreRepo
         pass
