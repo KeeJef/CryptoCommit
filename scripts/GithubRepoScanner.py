@@ -19,6 +19,8 @@ def getRepos (CoreRepo):
     repoArray = []
     nameArray = {}
     counter = 0
+    requestloopcounter = 1
+    paginationcounter = 1
     repoName = ''
 
     if '--' in CoreRepo: #Read out the --name section in the text file
@@ -36,8 +38,8 @@ def getRepos (CoreRepo):
     CoreRepo = CoreRepo.path.split('/')
     CoreRepo = CoreRepo[1]
     print('Processing ' + CoreRepo)
-        
-   #work out the page count    
+
+    #work out the page count    
     if requests.get('https://api.github.com/orgs/' + CoreRepo + '/repos?per_page=100&page=' + str(requestloopcounter), auth=(username,token)).links:
         pagecount = requests.get('https://api.github.com/orgs/' + CoreRepo + '/repos?per_page=100&page=' + str(requestloopcounter), auth=(username,token)).links['last']['url']
         pagecount = re.split("&page=", pagecount)[1]
@@ -79,6 +81,7 @@ def getRepos (CoreRepo):
         pass
 
     nameArray['URL'] = CoreRepo
+
     if not repoName:
         nameArray['Common Name'] = CoreRepo
         pass
