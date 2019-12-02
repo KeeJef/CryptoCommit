@@ -2,6 +2,8 @@
 Counts commits across an organisation/user and gives you aggregated charts, which are more indicative of a coins actual activity,
 instead just focusing on a single repository 
 
+Cryptocommit is hosted at https://cryptocommit.org
+
 ![test](https://cryptocommit.org/Cryptocommit.PNG)
 
 ## How it works 
