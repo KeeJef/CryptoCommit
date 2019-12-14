@@ -2,12 +2,16 @@ import requests
 import json 
 from urllib.parse import urlparse
 import os 
+import time
 from operator import add 
+import sys
 
 username = os.environ.get('Githubuser')
 token = os.environ.get('GithubAPIKEY')
+
 totalCommitCount = 0
 masterarray = {}
+loopcount = 0
 
 def loadfile():
     rawJsonRepos = open("../Fullrepos.txt", "r")
@@ -16,6 +20,7 @@ def loadfile():
     return jsonRepos
 
 def getWeeklyCommits(repoArrayIntake):
+    global loopcount
     counter = 0
     counter1 = 0
     firstArray = []
@@ -25,9 +30,17 @@ def getWeeklyCommits(repoArrayIntake):
 
     while len(repoArrayIntake[url]) != counter:
         repo = repoArrayIntake[url][counter]
+
+        if loopcount > 4500:
+            print("Sleeping on limit")
+            time.sleep(3600)
+            loopcount = 0
+            pass
         try:
             weeklyCommitRepo = requests.get('https://api.github.com/repos/' + url + "/" + repo + '/stats/commit_activity', auth=(username,token))
             counter += 1
+            loopcount += 1 
+            print(url + repo + str(loopcount))
         except requests.exceptions.RequestException:  # This is the correct syntax
             exit()
 
@@ -51,7 +64,7 @@ def getWeeklyCommits(repoArrayIntake):
         if not agregateCommitrepo: #dont add array to other array on the first iteration, since there is one empty array
 
             if len(repoArrayIntake[url]) == 1:
-                agregateCommitrepo = firstArray #add the just calucated repo to a running count
+                agregateCommitrepo = firstArray #add the just calculated repo to a running count
                 totalCommitCount = sum(firstArray)
                 pass
             else:
@@ -61,7 +74,7 @@ def getWeeklyCommits(repoArrayIntake):
             
             continue
 
-        agregateCommitrepo = list(map(add, firstArray, agregateCommitrepo )) #add the just calucated repo to a running count
+        agregateCommitrepo = list(map(add, firstArray, agregateCommitrepo )) #add the just calculated repo to a running count
         totalCommitCount = sum(agregateCommitrepo)
         firstArray = []
 
