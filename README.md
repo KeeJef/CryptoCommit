@@ -2,6 +2,8 @@
 Counts commits across an organisation/user and gives you aggregated charts, which are more indicative of a coins actual activity,
 instead just focusing on a single repository 
 
+**The web part of Cryptocommit should have been created in PHP, as rendering JS graphs in browser for 100s of coins takes a significant amount of time and should be done server side only occasionally**
+
 Cryptocommit is hosted at https://cryptocommit.org
 
 ![test](https://cryptocommit.org/Cryptocommit.PNG)
