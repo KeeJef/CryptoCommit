@@ -108,7 +108,7 @@ CoinChart.id = counter
 CoinContainer.setAttribute('data-sort',totalCommits)
 CoinContainer.setAttribute('Name',repoName.toLowerCase())
 
-CoinCommits.innerHTML = "Total Yearly Commits " + "<span class=\"label label-success\">"+ totalCommits +"</span>"
+CoinCommits.innerHTML = "<span class=\"totalcommits\">"+ "Total Yearly Commits " + "<span class=\"label label-success\">"+ totalCommits +"</span>" + "</span>"
 
 CoinChart.className = "coinchart"
 CoinContainer.className = "CoinContainer"
@@ -123,12 +123,19 @@ $('#'+counter).highcharts(json);
 counter += 1 
    }
 
-jQuery.fn.sortDivs = function sortDivs() {
+jQuery.fn.sortDivs = function sortDivs() 
+{
 $("> CoinContainer", this[0]).sort(dec_sort).appendTo(this[0]);
-function dec_sort(a, b){ return ($(b).data("sort")) > ($(a).data("sort")) ? 1 : -1; }
+function dec_sort(a, b){
+   return ($(b).data("sort")) > ($(a).data("sort")) ? 1 : -1; 
+   }
 }
 
 $("#main").sortDivs();
+
+$(".CoinContainer").each(function(i) {
+    $(this).children("coincommits").prepend( "<span class=\"ranking\">" +"Rank " + "<span class=\"label label-success\">"+ (i +1) +"</span>" +"</span>")
+});
 
 $('#search').on('input', function() {
   var searchTerm = $.trim(this.value);
@@ -220,7 +227,7 @@ $( ".loader" ).remove();
 .coincommits{
    padding-top: 25px;
    padding-left: 25px;
-   display:inline-block;
+   
    font-size: 20px;
 }
 .logoimage{
@@ -260,6 +267,8 @@ $( ".loader" ).remove();
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.coincommits .ranking { float:left; padding-left:10px; }
+.coincommits .totalcommits { float:right; padding-right:10px; }
 
 
 </style>
