@@ -22,6 +22,9 @@ giving a more accurate measurement of commit activity, if you like this project 
 <div class="RepoLoadtext">Loading Repos</div>
 <br>
 <div class="loader"></div>
+<a href="javascript:prevPage()" id="btn_prev">Prev</a>
+<a href="javascript:nextPage()" id="btn_next">Next</a>
+page: <span id="page"></span>
 
 
 <script>
@@ -156,6 +159,81 @@ $( ".repoloadtext" ).remove();
 $( ".loader" ).remove();
 
 })
+
+// Get sorted data back from the fetch, put it all in an array, just render the first 10 results 
+//when jump to the next page then render the next 10 results
+
+var current_page = 1;
+var records_per_page = 20;
+
+var objJson = [
+    { adName: "AdName 1"},
+    { adName: "AdName 2"},
+    { adName: "AdName 3"},
+    { adName: "AdName 4"},
+    { adName: "AdName 5"},
+    { adName: "AdName 6"},
+    { adName: "AdName 7"},
+    { adName: "AdName 8"},
+    { adName: "AdName 9"},
+    { adName: "AdName 10"}
+]; // Can be obtained from another source, such as your objJson variable
+
+function prevPage()
+{
+    if (current_page > 1) {
+        current_page--;
+        changePage(current_page);
+    }
+}
+
+function nextPage()
+{
+    if (current_page < numPages()) {
+        current_page++;
+        changePage(current_page);
+    }
+}
+
+function changePage(page)
+{
+    var btn_next = document.getElementById("btn_next");
+    var btn_prev = document.getElementById("btn_prev");
+    var listing_table = document.getElementById("main"); //fix names
+    var page_span = document.getElementById("page");
+
+    // Validate page
+    if (page < 1) page = 1;
+    if (page > numPages()) page = numPages();
+
+    listing_table.innerHTML = "";
+
+    for (var i = (page-1) * records_per_page; i < (page * records_per_page); i++) {
+        listing_table.innerHTML += objJson[i].adName + "<br>"; //coins need to be in an array
+    }
+    page_span.innerHTML = page;
+
+    if (page == 1) {
+        btn_prev.style.visibility = "hidden";
+    } else {
+        btn_prev.style.visibility = "visible";
+    }
+
+    if (page == numPages()) {
+        btn_next.style.visibility = "hidden";
+    } else {
+        btn_next.style.visibility = "visible";
+    }
+}
+
+function numPages()
+{
+    return Math.ceil(objJson.length / records_per_page); //Knows when to stop dispaying next page 
+}
+
+window.onload = function() {
+    changePage(1);
+};
 
 </script>
 
