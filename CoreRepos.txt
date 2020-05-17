@@ -137,3 +137,5 @@ https://github.com/hashgraph --Hedera Hashgraph
 https://github.com/harmony-one --Harmony
 https://github.com/vertcoin-project --Vertcoin
 https://github.com/DiviProject --Divi
+https://github.com/singnet --SingularityNET
+https://github.com/oceanprotocol --Ocean Protocol
