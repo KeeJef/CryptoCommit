@@ -6,8 +6,6 @@ instead just focusing on a single repository
 
 Cryptocommit is hosted at https://cryptocommit.org
 
-![test](https://cryptocommit.org/Cryptocommit.PNG)
-
 ## How it works 
 
 To add a new coin you specify the organisation or user URL and the Common name in the CoreRepo.txt file, for example 
