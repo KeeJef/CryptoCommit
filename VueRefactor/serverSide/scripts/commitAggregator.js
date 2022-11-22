@@ -50,7 +50,7 @@ async function fetchList(repoList) {
         await new Promise(r => setTimeout(r, 3600000));
         requestCounter = 0;
       }  
-
+      //lets check to see if we are getting a 200 or 202
       var response = await axios.get(
         `https://api.github.com/repos/${splitURL[3]}/${splitURL[4]}/stats/participation`,
         {
