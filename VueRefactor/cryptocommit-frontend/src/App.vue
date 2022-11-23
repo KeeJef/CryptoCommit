@@ -1,16 +1,51 @@
 <template>
-  <menuBar></menuBar>
+  <menuBar :projectList="this.projectsFiltered"></menuBar>
 </template>
 
 <script>
 import menuBar from './components/menuBar.vue'
+import axios from "axios";
 
 export default {
   name: 'App',
+  data() {
+    return {
+      projects:[],
+      projectsFiltered:[],
+    };
+  },
   components: {
     menuBar
+  },
+  async mounted() {
+    //fetch data using axios
+    try {
+    var response = await axios.get('http://127.0.0.1:8081/weeklyCoinCommitNumber.txt')
+    this.projects =  response.data
+    this.projectsFiltered = this.filterProjectName(this.projects)  
+    } catch (error) {
+      console.log("could not fetch chart data")
+      console.log(error)
+      return
+    }
+
+  },
+  methods: {
+    //get project names
+    filterProjectName(list){
+      
+      var projectNames = []
+      for (var i = 0; i < list.length; i++) {
+        //todo fix this data being null in the script, we should never get null data from the api
+        if (list[i] != null) {
+          projectNames.push(list[i].title)
+        }
+      }
+      return projectNames
+    }
   }
 }
+
 </script>
 
 <style>
