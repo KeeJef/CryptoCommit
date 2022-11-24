@@ -1,9 +1,12 @@
 <template>
   <menuBar :projectList="this.projectsFiltered"></menuBar>
+  <orgChart></orgChart>
+
 </template>
 
 <script>
 import menuBar from './components/menuBar.vue'
+import orgChart from './components/orgChart.vue'
 import axios from "axios";
 
 export default {
@@ -15,7 +18,8 @@ export default {
     };
   },
   components: {
-    menuBar
+    menuBar,
+    orgChart
   },
   async mounted() {
     //fetch data using axios

@@ -35,6 +35,7 @@ giving a more accurate measurement of commit activity, if you like this project 
 
 <script>
 import SimpleTypeahead from "vue3-simple-typeahead";
+import 'vue3-simple-typeahead/dist/vue3-simple-typeahead.css'
 
 export default {
   name: "menuBar",
@@ -46,3 +47,23 @@ export default {
   },
 };
 </script>
+
+<style>
+.simple-typeahead .simple-typeahead-list {
+  max-height: 300px !important;
+  position: absolute;
+}
+.simple-typeahead {
+    position: relative !important;
+    width: auto !important;
+  }
+.simple-typeahead .simple-typeahead-list .simple-typeahead-list-item{
+    border-bottom: 0.1rem solid #d1d1d1 !important;
+		border-left: 0.1rem solid #d1d1d1 !important;
+		border-right: 0.1rem solid #d1d1d1 !important;
+}
+.simple-typeahead .simple-typeahead-list .simple-typeahead-list-item.simple-typeahead-list-item-active[data-v-f81ca714] {
+		background-color: #dfe7d0;
+}
+
+</style>
