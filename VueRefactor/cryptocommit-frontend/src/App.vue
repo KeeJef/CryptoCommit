@@ -1,6 +1,6 @@
 <template>
-  <menuBar :projectList="this.projectsFiltered"></menuBar>
-  <orgChart></orgChart>
+  <menuBar :projectList="this.projectNames"></menuBar>
+  <orgChart :commitData="this.projects[1]" class="w-80"></orgChart>
 
 </template>
 
@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       projects:[],
-      projectsFiltered:[],
+      projectNames:[],
     };
   },
   components: {
@@ -26,7 +26,7 @@ export default {
     try {
     var response = await axios.get('http://127.0.0.1:8081/weeklyCoinCommitNumber.txt')
     this.projects =  response.data
-    this.projectsFiltered = this.filterProjectName(this.projects)  
+    this.projectsNames = this.filterProjectName(this.projects)  
     } catch (error) {
       console.log("could not fetch chart data")
       console.log(error)

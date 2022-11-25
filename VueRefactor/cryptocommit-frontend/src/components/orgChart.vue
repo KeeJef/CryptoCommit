@@ -1,70 +1,81 @@
 <template>
-
-<Bar
+  <Line
     :chart-options="chartOptions"
     :chart-data="chartData"
     :chart-id="chartId"
     :dataset-id-key="datasetIdKey"
-    :plugins="plugins"
-    :css-classes="cssClasses"
-    :styles="styles"
     :width="width"
     :height="height"
   />
-
 </template>
 
 <script>
-import { Bar } from 'vue-chartjs'
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+import { Line } from 'vue-chartjs'
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  LineElement,
+  LinearScale,
+  PointElement,
+  CategoryScale,
+} from 'chart.js'
 
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  LineElement,
+  LinearScale,
+  PointElement,
+  CategoryScale
+)
 
-export default {
+export default ({
   name: 'orgChart',
-  components: { Bar },
+  components: {
+    Line
+  },
   props: {
+    commitData: {},
     chartId: {
       type: String,
-      default: 'bar-chart'
-    },
-    datasetIdKey: {
-      type: String,
-      default: 'label'
+      default: 'line-chart'
     },
     width: {
       type: Number,
-      default: 400
+      default: 600
     },
     height: {
       type: Number,
-      default: 400
+      default: 200
     },
-    cssClasses: {
-      default: '',
-      type: String
-    },
-    styles: {
-      type: Object,
-      default: () => {}
-    },
-    plugins: {
-      type: Array,
-      default: () => []
-    }
   },
   data() {
     return {
       chartData: {
-        labels: [ 'January', 'February', 'March' ],
-        datasets: [ { data: [40, 20, 12] } ]
-      },
-      chartOptions: {
-        responsive: true
-      }
-    }
-  }
-}
+        //these labels should probably be generated as the last year in months, need to do this in a function so that last month is always the current month
+      labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '27', '28', '29', '30', '31', '32', ],
+      datasets: [
+        {
+          label: 'Data One',
+          backgroundColor: '#f87979',
+          data: [40, 39, 10, 40, 39, 80, 40]
+        }
+      ]
+    },
+      chartOptions:{
+      responsive: true,
+      maintainAspectRatio: false
+    },
+    };
+  },
+
+
+})
 </script>
 
-<style></style>
+<style>
+
+</style>
