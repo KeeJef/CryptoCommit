@@ -81,6 +81,7 @@ async function fetchList(repoList) {
   }
   coinObject.title = repoList.title;
   coinObject.weeklyCommitSummation = weeklyCommitSummation;
+  coinObject.totalCommits = weeklyCommitSummation.reduce((a, b) => a + b, 0);
   return coinObject;
 }
 

@@ -1,6 +1,6 @@
 <template>
   <menuBar :projectList="this.projectNames"></menuBar>
-  <orgChart :commitData="this.projects[1]" class="w-80"></orgChart>
+  <orgChart :commitData="this.projects[1]" class="mx-32"></orgChart>
 
 </template>
 
