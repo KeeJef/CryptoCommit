@@ -1,12 +1,10 @@
 <template>
-  <Line
-    :chart-options="chartOptions"
-    :chart-data="chartData"
-    :chart-id="chartId"
-    :dataset-id-key="datasetIdKey"
-    :width="width"
-    :height="height"
-  />
+    <Line
+      :chart-options="chartOptions"
+      :chart-data="chartData"
+      :chart-id="chartId"
+      :dataset-id-key="datasetIdKey"
+    />
 </template>
 
 <script>
@@ -38,6 +36,7 @@ export default {
     Line,
   },
   props: {
+    windowWidth: Number,
     commitData: {},
     chartId: {
       type: String,
@@ -65,47 +64,49 @@ export default {
         datasets: [
           {
             label: "Commits",
-            backgroundColor: "#f87979",
-            data: [
-              570, 376, 525, 504, 664, 266, 496, 747, 588, 543, 542, 394, 423,
-              502, 547, 473, 644, 451, 606, 531, 582, 194, 232, 398, 673, 536,
-              683, 547, 604, 624, 692, 546, 685, 673, 626, 501, 585, 641, 534,
-              552, 478, 519, 714, 775, 687, 626, 467, 324, 542, 578, 513, 309,
-            ],
+            backgroundColor: "#39ace7",
+            borderColor: "#39ace7",
+            pointHoverRadius: 7,
+            pointRadius: 5,
+            pointHitRadius: 10,
+            data: this.commitData.weeklyCommitSummation,
             tension: 0.4,
           },
         ],
       },
       chartOptions: {
-        responsive: true,
+
         maintainAspectRatio: false,
-        scales:{
-          y:{
-            title:{
+        scales: {
+          y: {
+            title: {
               display: true,
-              text : "Commits"
-            }
+              text: "Number of Commits",
+            },
           },
-          x:{
+          x: {
             ticks: {
-                    // Include a dollar sign in the ticks
-                    callback: function(value) {
-                       // return 4 ticks as months
-                        if (value % 5 == 0) {
-                          return value;
-                        }
-                    }
-                },
-            title:{
-              display:true,
-              text : "Weeks"
-            }
-          }
-        }
+              callback: function (value) {
+                // return 4 ticks as months
+                if (value % 5 == 0) {
+                  return value;
+                }
+              },
+            },
+            title: {
+              display: true,
+              text: "Week",
+            },
+          },
+        },
       },
     };
   },
 };
 </script>
 
-<style></style>
+<style>
+canvas{
+  max-width: 1000px;
+}
+</style>

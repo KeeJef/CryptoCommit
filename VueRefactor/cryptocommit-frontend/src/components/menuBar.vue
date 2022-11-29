@@ -1,21 +1,21 @@
 <template>
   <header class="flex justify-between bg-[#e9e9e9] h-14">
-    <div class="flex grow basis-0 justify-start">
-      <div class="flex justify-center items-center bg-blue-500 px-6">
+    <div class="flex justify-start">
+      <div class="justify-center items-center bg-blue-500 px-6 hidden md:flex">
         <div class="text-white text-lg">Github</div>
       </div>
-      <div class="justify-center items-center px-6 hidden lg:flex">
+      <div class="justify-center whitespace-nowrap items-center px-6 hidden lg:flex">
         <div class="text-black text-lg">Request a project...</div>
       </div>
     </div>
-    <div class="justify-self-center self-center px-4">
+    <div class="flex justify-self-center self-center px-2 md:px-4">
       <a href="."
         ><img src="../assets/CryptoCommitLogo.webp" alt="CryptoCommit Logo"
       /></a>
     </div>
-    <div class="flex justify-end grow basis-0 self-center pr-4">
+    <div class="flex justify-end self-center pr-2 md:pr-4">
       <SimpleTypeahead
-        class="p-2 w-60 text-black"
+        class="p-2 text-black w-full"
         id="typeahead_id"
         placeholder="Search..."
         :items="this.projectList"
@@ -29,8 +29,7 @@
       </SimpleTypeahead>
     </div>
   </header>
-  <div class="text-center pt-5 text-xl">This site aggregates commits across all Repositories and Branches of a project,<br>
-giving a more accurate measurement of commit activity, if you like this project star it <a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="https://github.com/KeeJef/CryptoCommit">here</a></div>
+  <div class="text-center pt-5 text-xl px-4">Aggregate Github commit history across all repositories of a project</div>
 </template>
 
 <script>
