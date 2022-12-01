@@ -1,13 +1,28 @@
 <template>
   <menuBar :projectList="this.projectNames"></menuBar>
   <div class="">
-  <div style="max-width:1000px;" v-if="this.projects[1]" class="mx-5 mt-5 rounded-sm shadow-xl border-slate-100 border-2 md:mx-10">
-    <div class="flex justify-center text-lg font-bold">{{this.projects[1].title}}</div>
-    <orgChart
-      :commitData="this.projects[1]"
-    ></orgChart>
+    <div
+      v-if="this.projects[1]"
+      class="mx-2 mt-5 rounded-sm shadow-xl border-slate-100 border-2 lg:mx-32 xl:mx-60"
+    >
+      <div class="flex justify-center text-lg font-bold">
+        {{ this.projects[1].title }}
+      </div>
+      <orgChart :commitData="this.projects[1]"></orgChart>
+    </div>
   </div>
-</div>
+
+  <div class="">
+    <div
+      v-if="this.projects[1]"
+      class="mx-5 mt-5 rounded-sm shadow-xl border-slate-100 border-2 lg:mx-32 xl:mx-60"
+    >
+      <div class="flex justify-center text-lg font-bold">
+        {{ this.projects[1].title }}
+      </div>
+      <orgChart :commitData="this.projects[1]"></orgChart>
+    </div>
+  </div>
 </template>
 
 <script>
