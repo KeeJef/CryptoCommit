@@ -7,19 +7,19 @@ import { dirname } from "path";
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-var githubToken = "";
+var githubToken = readFileFromDisk("../scripts/ghkeys.txt");
 var githubRepoArray = [];
 //get all repos for an org
 
-var unparsedList = readFileFromDisk();
+var unparsedList = readFileFromDisk("../assets/coreRepos.txt");
 var parsedList = await parseList(unparsedList);
 var fetchedRepos = await fetchList(parsedList);
 writeToFile(path.resolve(__dirname, "../assets/fetchedRepoList.txt"),JSON.stringify(fetchedRepos));
 
-function readFileFromDisk() {
+function readFileFromDisk(contentPath) {
   try {
     const data = fs.readFileSync(
-      path.resolve(__dirname, "../assets/coreRepos.txt"),
+      path.resolve(__dirname, contentPath),
       "utf8"
     );
     return data;

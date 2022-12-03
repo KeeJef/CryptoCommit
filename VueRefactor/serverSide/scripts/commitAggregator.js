@@ -1,5 +1,5 @@
 import axios from "axios";
-import fs from "fs";
+import fs, { read } from "fs";
 import path from "path";
 import url from "url";
 import { dirname } from "path";
@@ -7,11 +7,11 @@ import { dirname } from "path";
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-var githubToken = "";
+var githubToken = readFileFromDisk("../scripts/ghkeys.txt");
 var commitRepoArray = [];
 var requestCounter = 0;
 
-var repoList = JSON.parse(readFileFromDisk());
+var repoList = JSON.parse(readFileFromDisk("../assets/fetchedRepoList.txt"));
 
 for (let index = 0; index < repoList.length; index++) {
   const element = repoList[index];
@@ -24,10 +24,10 @@ writeToFile(
   JSON.stringify(commitRepoArray)
 );
 
-function readFileFromDisk() {
+function readFileFromDisk(contentPath) {
   try {
     const data = fs.readFileSync(
-      path.resolve(__dirname, "../assets/fetchedRepoList.txt"),
+      path.resolve(__dirname, contentPath),
       "utf8"
     );
     return data;
@@ -39,12 +39,14 @@ function readFileFromDisk() {
 async function fetchList(repoList) {
   var coinObject = {};
   var weeklyCommitSummation = Array(52).fill(0);
+  var coreRepoURL = ''
 
   for (let index = 0; index < repoList.repositories.length; index++) {
     try {
       const element = repoList.repositories[index];
       var splitURL = element.split("/");
       console.log(repoList.title + ": " + splitURL[4] + " " + requestCounter);
+      coreRepoURL = `https://github.com/`+ splitURL[3]
 
       requestCounter++;
       if (requestCounter == 4500) {
@@ -75,6 +77,8 @@ async function fetchList(repoList) {
       if (error.response.data.message.includes("API rate limit exceeded")) {
         console.log("sleeping for 60 mins");
         await new Promise((r) => setTimeout(r, 3600000));
+        //ensure we test the same repo again if due to timeout
+        index--
       }
     }
 
@@ -83,6 +87,7 @@ async function fetchList(repoList) {
   coinObject.weeklyCommitSummation = weeklyCommitSummation;
   coinObject.totalRepoCount = repoList.repositories.length;
   coinObject.totalCommits = weeklyCommitSummation.reduce((a, b) => a + b, 0);
+  coinObject.coreURL = coreRepoURL;
   return coinObject;
 }
 

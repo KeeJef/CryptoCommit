@@ -1,26 +1,36 @@
 <template>
   <menuBar :projectList="this.projectNames"></menuBar>
-  <div class="">
-    <div
-      v-if="this.projects[1]"
-      class="mx-2 mt-5 rounded-sm shadow-xl border-slate-100 border-2 lg:mx-32 xl:mx-60"
-    >
-      <div class="flex justify-center text-lg font-bold">
-        {{ this.projects[1].title }}
-      </div>
-      <orgChart :commitData="this.projects[1]"></orgChart>
-    </div>
-  </div>
 
-  <div class="">
+   <div v-for="project in this.projects" :key="project">
     <div
-      v-if="this.projects[1]"
-      class="mx-5 mt-5 rounded-sm shadow-xl border-slate-100 border-2 lg:mx-32 xl:mx-60"
+      v-if="project"
+      class="mx-2 mt-5 rounded-sm shadow-xl border-slate-100 border-2 lg:mx-32 xl:mx-60 relative"
     >
-      <div class="flex justify-center text-lg font-bold">
-        {{ this.projects[1].title }}
+      <div class="flex justify-between text-lg px-2 pt-2 md:px-5">
+        <div class="flex self-start">
+          Rank
+          <span
+            class="ml-1 py-1 px-2 bg-green-500 rounded-md text-white font-bold"
+          >{{}}</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex justify-end">
+            Total Yearly Commits<span
+              class="ml-2 py-1 px-2 bg-green-500 rounded-md text-white font-bold"
+              >{{ project.totalCommits }}</span
+            >
+          </div>
+          <div class="text-xs flex justify-end">
+            Total Repos Tracked: {{project.totalRepoCount }}
+          </div>
+        </div>
       </div>
-      <orgChart :commitData="this.projects[1]"></orgChart>
+      <div style="left:46%" class="text-xl font-bold top-5 absolute">
+          <a target="blank" :href="project.coreURL"
+            >{{project.title }}
+          </a>
+        </div>
+      <orgChart :commitData="project"></orgChart>
     </div>
   </div>
 </template>
@@ -74,8 +84,6 @@ export default {
 
 <style>
 #App {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 </style>
