@@ -1,22 +1,22 @@
 <template>
   <menuBar :projectList="this.projectNames"></menuBar>
 
-   <div v-for="project in this.projects" :key="project">
+   <div v-for="(project,index) in this.currentlyShowProjects" :key="project">
     <div
       v-if="project"
-      class="mx-2 mt-5 rounded-sm shadow-xl border-slate-100 border-2 lg:mx-32 xl:mx-60 relative"
+      class="mx-2 mt-5 rounded-md shadow-xl border-slate-100 border-2 lg:mx-32 xl:mx-60 relative"
     >
       <div class="flex justify-between text-lg px-2 pt-2 md:px-5">
-        <div class="flex self-start">
+        <div class="flex items-center self-start">
           Rank
           <span
-            class="ml-1 py-1 px-2 bg-green-500 rounded-md text-white font-bold"
-          >{{}}</span>
+            class="ml-1 py-0.5 px-2 bg-green-500 rounded-md text-white font-bold"
+          >{{(index + 1)}}</span>
         </div>
         <div class="flex flex-col">
-          <div class="flex justify-end">
+          <div class="flex items-center justify-end">
             Total Yearly Commits<span
-              class="ml-2 py-1 px-2 bg-green-500 rounded-md text-white font-bold"
+              class="ml-2 py-0.5 px-2 bg-green-500 rounded-md text-white font-bold"
               >{{ project.totalCommits }}</span
             >
           </div>
@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      <div style="left:46%" class="text-xl font-bold top-5 absolute">
+      <div id="titleStyle" class="text-xl font-bold top-5 absolute">
           <a target="blank" :href="project.coreURL"
             >{{project.title }}
           </a>
@@ -46,6 +46,7 @@ export default {
     return {
       projects: [],
       projectNames: [],
+      currentlyShowProjects:[]
     };
   },
   components: {
@@ -60,6 +61,7 @@ export default {
       );
       this.projects = response.data;
       this.projectNames = await this.filterProjectName(this.projects);
+      this.currentlyShowProjects = this.projects.slice(0,10);
     } catch (error) {
       console.log("could not fetch chart data");
       console.log(error);
@@ -85,5 +87,13 @@ export default {
 <style>
 #App {
   font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+@media only screen and (max-width: 600px) {
+  #titleStyle{ 
+    left:42% !important;
+  }
+}
+#titleStyle{
+  left:46%;
 }
 </style>
