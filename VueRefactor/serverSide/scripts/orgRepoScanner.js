@@ -85,7 +85,9 @@ async function parseRepos(repos, org) {
   try {
     for (let index = 0; index < repos.length; index++) {
       const element = repos[index];
-      jsonInfo.repositories.push(element.html_url);
+      if (element.stargazers_count >= 10 && element.archived == false) {
+        jsonInfo.repositories.push(element.html_url);
+      }
     }
     return jsonInfo;
   } catch (error) {

@@ -1,7 +1,7 @@
 <template>
   <menuBar :projectList="this.projectNames"></menuBar>
 
-   <div v-for="(project,index) in this.currentlyShowProjects" :key="project">
+   <div v-for="project in this.currentlyShowProjects" :key="project">
     <div
       v-if="project"
       class="mx-2 mt-5 rounded-md shadow-xl border-slate-100 border-2 lg:mx-32 xl:mx-60 relative"
@@ -11,17 +11,20 @@
           Rank
           <span
             class="ml-1 py-0.5 px-2 bg-green-500 rounded-md text-white font-bold"
-          >{{(index + 1)}}</span>
+          >{{project.rank}}</span>
         </div>
         <div class="flex flex-col">
-          <div class="flex items-center justify-end">
-            Total Yearly Commits<span
+          <div class="flex items-center justify-end text-xs md:text-lg">
+            Total Commits<span
               class="ml-2 py-0.5 px-2 bg-green-500 rounded-md text-white font-bold"
               >{{ project.totalCommits }}</span
             >
           </div>
           <div class="text-xs flex justify-end">
-            Total Repos Tracked: {{project.totalRepoCount }}
+            Repos Tracked: {{project.totalRepoCount }}
+          </div>
+          <div class="text-xs flex justify-end">
+            Top Repo: <a class="pl-1" :href=project.topRepoURL> {{ project.topRepoURL.split('/')[4] }}</a> 
           </div>
         </div>
       </div>
@@ -61,7 +64,7 @@ export default {
       );
       this.projects = response.data;
       this.projectNames = await this.filterProjectName(this.projects);
-      this.currentlyShowProjects = this.projects.slice(0,10);
+      this.currentlyShowProjects = this.projects.slice(0,40);
     } catch (error) {
       console.log("could not fetch chart data");
       console.log(error);

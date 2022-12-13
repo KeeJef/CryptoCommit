@@ -1,14 +1,14 @@
 <template>
   <div class="p-2">
     <Line
-      :style = this.defaultHeight
+      :style="this.defaultHeight"
       ref="lineInstance"
       :chart-options="chartOptions"
       :chart-data="chartData"
       :chart-id="chartId"
       :dataset-id-key="datasetIdKey"
     />
-    </div>
+  </div>
 </template>
 
 <script>
@@ -54,7 +54,7 @@ export default {
     //return array of numbers from 1 to 52
     getWeeks() {
       let weeks = [];
-      for (let i = 1; i <= 52; i++) {
+      for (let i = 0; i <= 52; i++) {
         weeks.push(i);
       }
       return weeks;
@@ -66,11 +66,11 @@ export default {
       if (this.vssWidth < 800) {
         this.chartData.datasets[0].pointRadius = 0;
         this.chartData.datasets[0].fill = 'origin';
-        this.defaultHeight = 'height: 200px';    
+        this.defaultHeight = 'height: 200px';
       } else {
         this.chartData.datasets[0].pointRadius = 5;
         this.chartData.datasets[0].fill = false;
-        this.defaultHeight = 'height: 400px';    
+        this.defaultHeight = 'height: 400px';
       }
     },
 
@@ -80,7 +80,7 @@ export default {
     if(screen.width < 800){
       this.chartData.datasets[0].pointRadius = 0;
         this.chartData.datasets[0].fill = 'origin';
-        this.defaultHeight = 'height: 200px';   
+        this.defaultHeight = 'height: 200px';
     }
   },
   data() {
@@ -90,7 +90,7 @@ export default {
         labels: this.getWeeks(),
         datasets: [
           {
-            //change fill, tension and pointRadius when screen size is below sm 
+            //change fill, tension and pointRadius when screen size is below sm
             label: "Commits",
             backgroundColor: "#39ace7",
             borderColor: "#39ace7",
@@ -108,8 +108,17 @@ export default {
         plugins:{
           legend:{
             display: false
-          }
-        },
+          },
+          tooltip: {
+            //prefix the text "weeks:" to the week we are hovering over
+            callbacks: {
+              title: function (context) {
+                return "Week: " + (context[0].label);
+              },
+            }, 
+
+        }
+      },
         scales: {
           y: {
             title: {
@@ -138,7 +147,4 @@ export default {
 };
 </script>
 
-<style>
-
-
-</style>
+<style></style>

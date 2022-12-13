@@ -29,7 +29,7 @@
       </SimpleTypeahead>
     </div>
   </header>
-  <div class="text-center pt-5 text-xl px-4">Aggregate Github commit history across all repositories of a project</div>
+  <div class="text-center pt-5 text-xl px-4">Aggregate Github commit history across all repositories of a project with more than 10 stars</div>
 </template>
 
 <script>

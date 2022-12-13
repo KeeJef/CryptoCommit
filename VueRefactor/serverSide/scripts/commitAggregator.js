@@ -19,10 +19,21 @@ for (let index = 0; index < repoList.length; index++) {
   var coinData = await fetchList(element);
   commitRepoArray.push(coinData);
 }
+
+//sort commitRepoArray by totalCommits
+commitRepoArray.sort((a, b) => (a.totalCommits > b.totalCommits) ? -1 : 1)
+// give each element a rank based on its position in the array
+for (let index = 0; index < commitRepoArray.length; index++) {
+  const element = commitRepoArray[index];
+  element.rank = index + 1;
+}
+
 writeToFile(
   path.resolve(__dirname, "../assets/weeklyCoinCommitNumber.txt"),
   JSON.stringify(commitRepoArray)
 );
+
+console.log("File written successfully")
 
 function readFileFromDisk(contentPath) {
   try {
@@ -40,6 +51,8 @@ async function fetchList(repoList) {
   var coinObject = {};
   var weeklyCommitSummation = Array(52).fill(0);
   var coreRepoURL = ''
+  var topRepoURL = ''
+  var topRepoCommits = 0
 
   for (let index = 0; index < repoList.repositories.length; index++) {
     try {
@@ -65,6 +78,14 @@ async function fetchList(repoList) {
         }
       );
 
+      //check if we have had a repo with more total commits than the repo we are currently testing and if so, set the topRepoURL to the current repo
+      var currentRepoCommits = response.data.all.reduce((a, b) => a + b, 0)
+
+      if (topRepoCommits < currentRepoCommits) {
+        topRepoCommits = currentRepoCommits
+        topRepoURL = `https://github.com/${splitURL[3]}/${splitURL[4]}`
+      }
+
       for (let index = 0; index < response.data.all.length; index++) {
         const element = response.data.all[index];
         weeklyCommitSummation[index] += element;
@@ -88,6 +109,7 @@ async function fetchList(repoList) {
   coinObject.totalRepoCount = repoList.repositories.length;
   coinObject.totalCommits = weeklyCommitSummation.reduce((a, b) => a + b, 0);
   coinObject.coreURL = coreRepoURL;
+  coinObject.topRepoURL = topRepoURL;
   return coinObject;
 }
 
