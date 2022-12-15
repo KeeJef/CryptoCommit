@@ -110,6 +110,7 @@ async function fetchList(repoList) {
   coinObject.totalCommits = weeklyCommitSummation.reduce((a, b) => a + b, 0);
   coinObject.coreURL = coreRepoURL;
   coinObject.topRepoURL = topRepoURL;
+  coinObject.lastUpdateTime = new Date().toISOString();
   return coinObject;
 }
 
