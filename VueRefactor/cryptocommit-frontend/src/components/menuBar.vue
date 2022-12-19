@@ -22,6 +22,8 @@
         :minInputLength="1"
         :itemProjection="itemProjectionFunction"
         @selectItem="selectItemEventHandler"
+        @compositionupdate="compositionUpdate($event)"
+        
         @onInput="onInputEventHandler"
         @onFocus="onFocusEventHandler"
         @onBlur="onBlurEventHandler"
@@ -29,7 +31,7 @@
       </SimpleTypeahead>
     </div>
   </header>
-  <div class="text-center pt-5 text-xl px-4">Aggregate Github commit history across all repositories of a project with more than 10 stars</div>
+  <div class="text-center pt-5 pb-2 text-xl px-4">Aggregate Github commit history across all repositories of a project with more than 10 stars</div>
 </template>
 
 <script>
@@ -38,12 +40,29 @@ import 'vue3-simple-typeahead/dist/vue3-simple-typeahead.css'
 
 export default {
   name: "menuBar",
+  data() {
+    return {
+      projectSelected: "",
+    };
+  },
   props: {
     projectList: Array
   },
   components: {
     SimpleTypeahead,
   },
+  methods:{
+    selectItemEventHandler(project){
+      this.projectSelected = project;
+      this.pushEventUpstream();
+    },
+    compositionUpdate(event) {
+      this.$refs.SimpleTypeahead.input = event.data
+    },
+    pushEventUpstream(){
+      this.$emit('projectSelected', this.projectSelected);
+    }
+  }
 };
 </script>
 

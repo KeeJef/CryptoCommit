@@ -1,12 +1,24 @@
 <template>
-  <menuBar :projectList="this.projectNames"></menuBar>
+  <menuBar
+    @projectSelected="processSearchSelection($event)"
+    :projectList="this.projectNames"
+  ></menuBar>
 
-  <div v-for="project in this.currentlyShowProjects" :key="project">
+  <div
+    :id="project.title"
+    :ref="project.title"
+    v-for="project in this.currentlyShowProjects"
+    :key="project"
+  >
     <div
       v-if="project"
-      class="mx-2 mt-5 rounded-md shadow-xl border-slate-100 border-2 lg:mx-32 xl:mx-60 relative"
+      class="mx-2 mt-2 mb-5 rounded-md shadow-xl border-slate-100 border-2 lg:mx-32 xl:mx-60 relative"
     >
-      <div class="flex justify-between text-lg px-2 pt-2 md:px-5">
+    <div class="flex justify-center text-xl font-bold pt-2">
+      <a target="blank" :href="project.coreURL">{{ project.title }} </a>
+    </div>
+
+      <div class="flex justify-between text-lg px-2 md:px-5">
         <div class="flex items-center self-start">
           Rank
           <span
@@ -32,14 +44,15 @@
           </div>
         </div>
       </div>
-      <div id="titleStyle" class="text-xl font-bold top-5 absolute">
-        <a target="blank" :href="project.coreURL">{{ project.title }} </a>
-      </div>
       <orgChart :commitData="project"></orgChart>
     </div>
   </div>
   <div v-if="this.projects.length" class="flex justify-center">
-    <pageCounter :maxItems="projects.length" :itemsPerPage="10"></pageCounter>
+    <pageCounter
+      @changePage="updatePage($event)"
+      :maxItems="projects.length"
+      :itemsPerPage="10"
+    ></pageCounter>
   </div>
 </template>
 
@@ -48,6 +61,7 @@ import menuBar from "./components/menuBar.vue";
 import pageCounter from "./components/pageCounter.vue";
 import orgChart from "./components/orgChart.vue";
 import axios from "axios";
+import { nextTick } from "vue";
 
 export default {
   name: "App",
@@ -56,6 +70,7 @@ export default {
       projects: [],
       projectNames: [],
       currentlyShowProjects: [],
+      resultsPerPage: 10,
     };
   },
   components: {
@@ -67,11 +82,11 @@ export default {
     //fetch data using axios
     try {
       var response = await axios.get(
-        "http://127.0.0.1:8081/weeklyCoinCommitNumber.txt"
+        "http://192.168.0.6:8081/weeklyCoinCommitNumber.txt"
       );
       this.projects = response.data;
       this.projectNames = await this.filterProjectName(this.projects);
-      this.currentlyShowProjects = this.projects.slice(0, 1);
+      this.currentlyShowProjects = this.projects.slice(0, this.resultsPerPage);
     } catch (error) {
       console.log("could not fetch chart data");
       console.log(error);
@@ -90,6 +105,38 @@ export default {
       }
       return projectNames;
     },
+    updatePage(page) {
+      if (page == 1) {
+        this.currentlyShowProjects = this.projects.slice(
+          0,
+          this.resultsPerPage
+        );
+      } else {
+        this.currentlyShowProjects = this.projects.slice(
+          (page - 1) * this.resultsPerPage,
+          page * this.resultsPerPage
+        );
+      }
+      window.scrollTo(0, 0);
+    },
+
+    async processSearchSelection(projectName) {
+      //find index of projectName in projectNames array
+      var index = this.projectNames.indexOf(projectName);
+      //array is 0 indexed, so add 1 to the index we calculated
+      var pageNumber = (index + 1) / this.resultsPerPage;
+      pageNumber = Math.ceil(pageNumber);
+      this.updatePage(pageNumber);
+      //wait for page to update then scroll to project
+      await nextTick();
+
+      var container = this.$refs[projectName][0];
+      container.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+    },
   },
 };
 </script>
@@ -97,13 +144,5 @@ export default {
 <style>
 #App {
   font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-}
-@media only screen and (max-width: 600px) {
-  #titleStyle {
-    left: 42% !important;
-  }
-}
-#titleStyle {
-  left: 46%;
 }
 </style>

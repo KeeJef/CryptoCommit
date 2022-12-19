@@ -1,15 +1,15 @@
 https://github.com/coti-io --Coti
 https://github.com/api3dao --API3
-https://github.com/oceanprotocol --Ocean Protocol
+https://github.com/oceanprotocol --Ocean
 https://github.com/mobilecoinfoundation --MobileCoin
 https://github.com/RequestNetwork --Request
 https://github.com/skalenetwork --SKALE
 https://github.com/UMAprotocol --UMA
 https://github.com/InjectiveLabs --Injective
 https://github.com/dydxfoundation --dYdX
-https://github.com/energywebfoundation --Energy Web Token
+https://github.com/energywebfoundation --Energy Web
 https://github.com/Solar-network --Solar
-https://github.com/ribbon-finance --Ribbon Finance
+https://github.com/ribbon-finance --Ribbon
 https://github.com/threshold-network --Threshold
 https://github.com/AudiusProject --Audius
 https://github.com/runonflux --Flux
@@ -24,7 +24,7 @@ https://github.com/kadena-io --Kadena
 https://github.com/gnosis --Gnosis
 https://github.com/ethereum-optimism --Optimism
 https://github.com/kusamanetwork --Kusama
-https://github.com/DimensionDev --Mask Network
+https://github.com/DimensionDev --Mask
 https://github.com/xinfinorg --XDC
 https://github.com/yearn --yearn
 https://github.com/oasisprotocol --Oasis
@@ -57,7 +57,7 @@ https://github.com/Chain --Chain
 https://github.com/axieinfinity --Axie Infinity
 https://github.com/aave --Aave
 https://github.com/thesandboxgame --The Sandbox
-https://github.com/ElrondNetwork --Multiversx Elrond
+https://github.com/ElrondNetwork --Multiversx
 https://github.com/terra-money --Terra Classic
 https://github.com/onflow --Flow
 https://github.com/okex --OKB
@@ -92,7 +92,7 @@ https://github.com/centrehq --USDC
 https://github.com/ontio --Ontology
 https://github.com/oxen-io --Oxen
 https://github.com/vechain --VeChain
-https://github.com/crypto-com --Crypto.com Coin
+https://github.com/crypto-com --Crypto.com
 https://github.com/symbol --Symbol
 https://github.com/dogecoin --Dogecoin
 https://github.com/brave --Basic Attention Token
