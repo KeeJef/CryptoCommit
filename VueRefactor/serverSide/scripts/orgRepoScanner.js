@@ -11,9 +11,9 @@ var githubToken = readFileFromDisk("../scripts/ghkeys.txt");
 var githubRepoArray = [];
 //get all repos for an org
 
-var unparsedList = readFileFromDisk("../assets/coreRepos.txt");
-var parsedList = await parseList(unparsedList);
+var parsedList = JSON.parse(readFileFromDisk("../assets/coreReposJSON.txt"));
 var fetchedRepos = await fetchList(parsedList);
+await getMarketData(fetchedRepos);
 writeToFile(path.resolve(__dirname, "../assets/fetchedRepoList.txt"),JSON.stringify(fetchedRepos));
 
 function readFileFromDisk(contentPath) {
@@ -37,49 +37,23 @@ function writeToFile(path, data) {
   }
 }
 
-async function parseList(unparsedList) {
-  var orgList = unparsedList;
-  //split on new line
-  orgList = orgList.replace(/\r\n/g, "\r").replace(/\n/g, "\r").split(/\r/);
-  //remove any empty elements
-  orgList = orgList.filter(function (el) {
-    return el != null && el != "";
-  });
-
-  var JSONList = [];
-  try {
-    for (let index = 0; index < orgList.length; index++) {
-      const element = orgList[index];
-      //split element on -- to get org name and repo name
-      var elementTransform = element.split("--");
-      elementTransform[0] = elementTransform[0].trim();
-      //replace any new line characters
-      elementTransform[1] = elementTransform[1].replace(/(\r)/gm, "");
-      JSONList.push({
-        coinName: elementTransform[1],
-        url: elementTransform[0],
-      });
-    }
-    return JSONList;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
 async function fetchList(JSONList) {
   for (let index = 0; index < JSONList.length; index++) {
     const cryptoProject = JSONList[index];
-    console.log("Fetching repos for: " + cryptoProject.coinName);
+    console.log("Fetching repos for: " + cryptoProject.name);
     var repos = await getRepos(cryptoProject.url);
     if (repos) {
-      githubRepoArray.push(await parseRepos(repos, cryptoProject.coinName));
+      githubRepoArray.push(await parseRepos(repos, cryptoProject.name, cryptoProject.geckoIdentifier));
     }
   }
   return githubRepoArray;
 }
 
-async function parseRepos(repos, org) {
+async function parseRepos(repos, org, geckoIdentifier) {
   var jsonInfo = {};
+  if (geckoIdentifier) {
+    jsonInfo.geckoIdentifier = geckoIdentifier;
+  }
   jsonInfo.title = org;
   jsonInfo.repositories = [];
   try {
@@ -161,4 +135,42 @@ async function dataRequest(type, org) {
     }
   }
   return response.data;
+}
+
+async function getMarketData(fetchedRepos) {
+
+  for (let index = 0; index < fetchedRepos.length; index++) {
+
+    var element = fetchedRepos[index].title.toLowerCase();
+    console.log("Getting market data for " + element);
+
+    if (fetchedRepos[index].geckoIdentifier) {
+      element = fetchedRepos[index].geckoIdentifier;
+    }
+
+    try {
+      var response = await axios.get(
+        `https://api.coingecko.com/api/v3/simple/price?ids=${element}&vs_currencies=usd&include_market_cap=true`
+      );
+      if (Object.keys(response.data).length === 0) {
+        fetchedRepos[index].marketData = response.data[element].usd_market_cap;
+      }
+      else{
+        fetchedRepos[index].marketData = null
+      }
+      console.log("Got market data for " + element);
+    } catch (error) {
+      console.log(error);
+        if(error.response.status == 429){
+            //wait 1 minute
+            console.log("waiting 1.1 minute for coingecko")
+            await new Promise(r => setTimeout(r, 65000));
+            index--;
+            continue
+        }
+      console.log("Could not get stats for " + element);
+      fetchedRepos[index].marketData = null;
+    }
+  }
+  return;
 }

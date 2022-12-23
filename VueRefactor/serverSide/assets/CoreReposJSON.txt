@@ -1,0 +1,761 @@
+[
+  {
+    "url": "https://github.com/coti-io",
+    "name": "Coti"
+  },
+  {
+    "url": "https://github.com/api3dao",
+    "name": "API3"
+  },
+  {
+    "url": "https://github.com/oceanprotocol",
+    "name": "Ocean"
+  },
+  {
+    "url": "https://github.com/mobilecoinfoundation",
+    "name": "MobileCoin"
+  },
+  {
+    "url": "https://github.com/RequestNetwork",
+    "name": "Request",
+	"geckoIdentifier": "request-network"
+  },
+  {
+    "url": "https://github.com/skalenetwork",
+    "name": "SKALE"
+  },
+  {
+    "url": "https://github.com/UMAprotocol",
+    "name": "UMA"
+  },
+  {
+    "url": "https://github.com/InjectiveLabs",
+    "name": "Injective",
+	"geckoIdentifier": "injective-protocol"
+  },
+  {
+    "url": "https://github.com/dydxfoundation",
+    "name": "dYdX"
+  },
+  {
+    "url": "https://github.com/energywebfoundation",
+    "name": "Energy Web",
+	"geckoIdentifier": "energy-web-token"
+  },
+  {
+    "url": "https://github.com/Solar-network",
+    "name": "Solar"
+  },
+  {
+    "url": "https://github.com/ribbon-finance",
+    "name": "Ribbon",
+	"geckoIdentifier": "ribbon-finance"
+  },
+  {
+    "url": "https://github.com/threshold-network",
+    "name": "Threshold",
+	"geckoIdentifier": "threshold-network-token"
+  },
+  {
+    "url": "https://github.com/AudiusProject",
+    "name": "Audius"
+  },
+  {
+    "url": "https://github.com/runonflux",
+    "name": "Flux"
+  },
+  {
+    "url": "https://github.com/AstarNetwork",
+    "name": "Astar"
+  },
+  {
+    "url": "https://github.com/openhive-network",
+    "name": "Hive"
+  },
+  {
+    "url": "https://github.com/reserve-protocol",
+    "name": "Reserve"
+  },
+  {
+    "url": "https://github.com/Chia-Network",
+    "name": "Chia"
+  },
+  {
+    "url": "https://github.com/sushiswap",
+    "name": "SushiSwap",
+	"geckoIdentifier": "sushi"
+  },
+  {
+    "url": "https://github.com/livepeer",
+    "name": "Livepeer"
+  },
+  {
+    "url": "https://github.com/PureStake",
+    "name": "Moonbeam"
+  },
+  {
+    "url": "https://github.com/kadena-io",
+    "name": "Kadena"
+  },
+  {
+    "url": "https://github.com/gnosis",
+    "name": "Gnosis"
+  },
+  {
+    "url": "https://github.com/ethereum-optimism",
+    "name": "Optimism"
+  },
+  {
+    "url": "https://github.com/kusamanetwork",
+    "name": "Kusama"
+  },
+  {
+    "url": "https://github.com/DimensionDev",
+    "name": "Mask",
+	"geckoIdentifier": "mask-network"
+  },
+  {
+    "url": "https://github.com/xinfinorg",
+    "name": "XDC",
+	"geckoIdentifier": "xdce-crowd-sale"
+  },
+  {
+    "url": "https://github.com/yearn",
+    "name": "yearn",
+	"geckoIdentifier": "yearn-finance"
+  },
+  {
+    "name": "Oasis",
+    "url": "https://github.com/oasisprotocol",
+	"geckoIdentifier": "oasis-network"
+  },
+  {
+    "name": "Osmosis",
+    "url": "https://github.com/osmosis-labs"
+  },
+  {
+    "name": "Compound",
+    "url": "https://github.com/compound-finance",
+	"geckoIdentifier": "compound-coin"
+  },
+  {
+    "name": "Balancer",
+    "url": "https://github.com/balancer-labs"
+  },
+  {
+    "name": "ENS",
+    "url": "https://github.com/ensdomains",
+	"geckoIdentifier": "ethereum-name-service"
+  },
+  {
+    "name": "Helium",
+    "url": "https://github.com/helium"
+  },
+  {
+    "name": "Casper",
+    "url": "https://github.com/casper-network",
+	"geckoIdentifier": "casper-network"
+  },
+  {
+    "name": "Arweave",
+    "url": "https://github.com/ArweaveTeam"
+  },
+  {
+    "name": "Celo",
+    "url": "https://github.com/celo-org"
+  },
+  {
+    "name": "Kava",
+    "url": "https://github.com/kava-labs"
+  },
+  {
+    "name": "Enjin",
+    "url": "https://github.com/enjin",
+	"geckoIdentifier": "enjincoin"
+  },
+  {
+    "name": "1inch",
+    "url": "https://github.com/1inch"
+  },
+  {
+    "name": "Stacks",
+    "url": "https://github.com/stacks-network",
+	"geckoIdentifier": "blockstack"
+  },
+  {
+    "name": "Lido",
+    "url": "https://github.com/lidofinance",
+	"geckoIdentifier": "staked-ether"
+  },
+  {
+    "name": "ImmutableX",
+    "url": "https://github.com/immutable",
+	"geckoIdentifier": "immutable-x"
+  },
+  {
+    "name": "Curve",
+    "url": "https://github.com/curvefi",
+	"geckoIdentifier": "curve-dao-token"
+  },
+  {
+    "name": "Fei",
+    "url": "https://github.com/fei-protocol"
+  },
+  {
+    "name": "EthereumPoW",
+    "url": "https://github.com/ethereumpow",
+	"geckoIdentifier": "ethereum-pow-iou"
+  },
+  {
+    "name": "Mina",
+    "url": "https://github.com/MinaProtocol",
+	"geckoIdentifier": "mina-protocol"
+  },
+  {
+    "name": "The Graph",
+    "url": "https://github.com/graphprotocol",
+	"geckoIdentifier": "the-graph"
+  },
+  {
+    "name": "Thorchain",
+    "url": "https://github.com/thorchain"
+  },
+  {
+    "name": "eCash",
+    "url": "https://github.com/bitcoin-abc"
+  },
+  {
+    "name": "Klaytn",
+    "url": "https://github.com/klaytn",
+	"geckoIdentifier": "klay-token"
+  },
+  {
+    "name": "Pancake Swap",
+    "url": "https://github.com/pancakeswap",
+	"geckoIdentifier": "pancakeswap-token"
+  },
+  {
+    "name": "Bitdao",
+    "url": "https://github.com/bitdao-io"
+  },
+  {
+    "name": "Aptos",
+    "url": "https://github.com/aptos-labs"
+  },
+  {
+    "name": "Chain",
+    "url": "https://github.com/Chain"
+  },
+  {
+    "name": "Axie Infinity",
+    "url": "https://github.com/axieinfinity",
+	"geckoIdentifier": "axie-infinity"
+  },
+  {
+    "name": "Aave",
+    "url": "https://github.com/aave"
+  },
+  {
+    "name": "Maker/DAI",
+    "url": "https://github.com/makerdao",
+	"geckoIdentifier": "maker"
+  },
+  {
+    "name": "Dash",
+    "url": "https://github.com/dashpay"
+  },
+  {
+    "name": "Ethereum Classic",
+    "url": "https://github.com/ethereumclassic",
+	"geckoIdentifier": "ethereum-classic"
+  },
+  {
+    "name": "USDC",
+    "url": "https://github.com/centrehq",
+	"geckoIdentifier": "usd-coin"
+  },
+  {
+    "name": "Ontology",
+    "url": "https://github.com/ontio"
+  },
+  {
+    "name": "Oxen",
+    "url": "https://github.com/oxen-io",
+	"geckoIdentifier": "loki-network"
+  },
+  {
+    "name": "VeChain",
+    "url": "https://github.com/vechain"
+  },
+  {
+    "name": "Crypto.com",
+    "url": "https://github.com/crypto-com",
+	"geckoIdentifier": "crypto-com-chain"
+  },
+  {
+    "name": "Symbol",
+    "url": "https://github.com/symbol"
+  },
+  {
+    "name": "Dogecoin",
+    "url": "https://github.com/dogecoin"
+  },
+  {
+    "name": "Basic Attention Token",
+    "url": "https://github.com/brave",
+	"geckoIdentifier": "basic-attention-token"
+  },
+  {
+    "name": "Zcash",
+    "url": "https://github.com/zcash"
+  },
+  {
+    "name": "Synthetix",
+    "url": "https://github.com/Synthetixio",
+	"geckoIdentifier": "havven"
+  },
+  {
+    "name": "Paxos",
+    "url": "https://github.com/paxosglobal",
+	"geckoIdentifier": "paxos-standard"
+  },
+  {
+    "name": "Decred",
+    "url": "https://github.com/decred"
+  },
+  {
+    "name": "Qtum",
+    "url": "https://github.com/qtumproject"
+  },
+  {
+    "name": "TrueUSD",
+    "url": "https://github.com/trusttoken",
+	"geckoIdentifier": "true-usd"
+  },
+  {
+    "name": "0x",
+    "url": "https://github.com/0xProject"
+  },
+  {
+    "name": "Holo",
+    "url": "https://github.com/holochain",
+	"geckoIdentifier": "holotoken"
+  },
+  {
+    "name": "Augur",
+    "url": "https://github.com/AugurProject"
+  },
+  {
+    "name": "Bitcoin Gold",
+    "url": "https://github.com/BTCGPU",
+	"geckoIdentifier": "bitcoin-gold"
+  },
+  {
+    "name": "Algorand",
+    "url": "https://github.com/algorand"
+  },
+  {
+    "name": "Ravencoin",
+    "url": "https://github.com/RavenProject"
+  },
+  {
+    "name": "Nano",
+    "url": "https://github.com/nanocurrency"
+  },
+  {
+    "name": "OmiseGO",
+    "url": "https://github.com/omgnetwork"
+  },
+  {
+    "name": "Seele",
+    "url": "https://github.com/seeleteam"
+  },
+  {
+    "name": "Digibyte",
+    "url": "https://github.com/DigiByte-Core"
+  },
+  {
+    "name": "Lisk",
+    "url": "https://github.com/LiskHQ"
+  },
+  {
+    "name": "Komodo",
+    "url": "https://github.com/KomodoPlatform"
+  },
+  {
+    "name": "KuCoin Shares",
+    "url": "https://github.com/Kucoin",
+	"geckoIdentifier": "kucoin-shares"
+  },
+  {
+    "name": "Bytom",
+    "url": "https://github.com/Bytom"
+  },
+  {
+    "name": "Swipe",
+    "url": "https://github.com/SwipeWallet"
+  },
+  {
+    "name": "Quant",
+    "url": "https://github.com/quantnetwork",
+	"geckoIdentifier": "quant-network"
+  },
+  {
+    "name": "Bitcoin Diamond",
+    "url": "https://github.com/eveybcd",
+	"geckoIdentifier": "bitcoin-diamond"
+  },
+  {
+    "name": "ICON",
+    "url": "https://github.com/icon-project"
+  },
+  {
+    "name": "THETA",
+    "url": "https://github.com/thetatoken",
+	"geckoIdentifier": "theta-token"
+  },
+  {
+    "name": "BitTorrent",
+    "url": "https://github.com/bittorrent"
+  },
+  {
+    "name": "IOST",
+    "url": "https://github.com/iost-official",
+	"geckoIdentifier": "iostoken"
+  },
+  {
+    "name": "Verge",
+    "url": "https://github.com/vergecurrency"
+  },
+  {
+    "name": "Bytecoin",
+    "url": "https://github.com/bcndev"
+  },
+  {
+    "name": "Polygon",
+    "url": "https://github.com/maticnetwork",
+	"geckoIdentifier": "matic-network"
+  },
+  {
+    "name": "Waves",
+    "url": "https://github.com/wavesplatform/"
+  },
+  {
+    "name": "Monacoin",
+    "url": "https://github.com/monacoinproject"
+  },
+  {
+    "name": "Bitshares",
+    "url": "https://github.com/bitshares"
+  },
+  {
+    "name": "iExec RLC",
+    "url": "https://github.com/iExecBlockchainComputing",
+	"geckoIdentifier": "iexec-rlc"
+  },
+  {
+    "name": "MaidSafeCoin",
+    "url": "https://github.com/maidsafe"
+  },
+  {
+    "name": "HyperCash",
+    "url": "https://github.com/HcashOrg",
+	"geckoIdentifier": "hshare"
+  },
+  {
+    "name": "Nexo",
+    "url": "https://github.com/nexofinance"
+  },
+  {
+    "name": "DxChain Token",
+    "url": "https://github.com/DxChainNetwork",
+	"geckoIdentifier": "dxchain"
+  },
+  {
+    "name": "Steem",
+    "url": "https://github.com/steemit"
+  },
+  {
+    "name": "Aeternity",
+    "url": "https://github.com/aeternity"
+  },
+  {
+    "name": "SOLVE",
+    "url": "https://github.com/SolveCare",
+	"geckoIdentifier": "solve-care"
+  },
+  {
+    "name": "Zilliqa",
+    "url": "https://github.com/Zilliqa"
+  },
+  {
+    "name": "Thunder Token",
+    "url": "https://github.com/thundercore",
+	"geckoIdentifier": "thunder-token"
+  },
+  {
+    "name": "Secret Network",
+    "url": "https://github.com/scrtlabs",
+	"geckoIdentifier": "secret"
+  },
+  {
+    "name": "Horizen",
+    "url": "https://github.com/HorizenOfficial",
+	"geckoIdentifier": "zencash"
+  },
+  {
+    "name": "Golem",
+    "url": "https://github.com/golemfactory"
+  },
+  {
+    "name": "Status",
+    "url": "https://github.com/status-im"
+  },
+  {
+    "name": "Pundi X",
+    "url": "https://github.com/pundix",
+	"geckoIdentifier": "pundi-x-2"
+  },
+  {
+    "name": "Energi",
+    "url": "https://github.com/energicryptocurrency"
+  },
+  {
+    "name": "Aelf",
+    "url": "https://github.com/aelfProject"
+  },
+  {
+    "name": "Electroneum",
+    "url": "https://github.com/electroneum"
+  },
+  {
+    "name": "Fetch.ai",
+    "url": "https://github.com/fetchai",
+	"geckoIdentifier": "fetch-ai"
+  },
+  {
+    "name": "RIF Token",
+    "url": "https://github.com/riflabs",
+	"geckoIdentifier": "rif-token"
+  },
+  {
+    "name": "Firo",
+    "url": "https://github.com/firoorg",
+	"geckoIdentifier": "zcoin"
+  },
+  {
+    "name": "REN",
+    "url": "https://github.com/renproject",
+	"geckoIdentifier": "republic-protocol"
+  },
+  {
+    "name": "Fusion",
+    "url": "https://github.com/FUSIONFoundation",
+	"geckoIdentifier": "fsn"
+  },
+  {
+    "name": "Newton",
+    "url": "https://github.com/newtonproject",
+	"geckoIdentifier": "newton-project"
+  },
+  {
+    "name": "Lambda",
+    "url": "https://github.com/LambdaIM"
+  },
+  {
+    "name": "REI Network",
+    "url": "https://github.com/rei-network",
+	"geckoIdentifier": "rei-network"
+  },
+  {
+    "name": "Kyber Network",
+    "url": "https://github.com/kybernetwork",
+	"geckoIdentifier": "kyber-network-crystal"
+  },
+  {
+    "name": "Metaverse ETP",
+    "url": "https://github.com/mvs-org",
+	"geckoIdentifier": "metaverse-etp"
+  },
+  {
+    "name": "Stratis",
+    "url": "https://github.com/stratisproject"
+  },
+  {
+    "name": "Aurora",
+    "url": "https://github.com/aurarad"
+  },
+  {
+    "name": "Grin",
+    "url": "https://github.com/mimblewimble"
+  },
+  {
+    "name": "Nash",
+    "url": "https://github.com/nash-io",
+	"geckoIdentifier": "neon-exchange"
+  },
+  {
+    "name": "Elastos",
+    "url": "https://github.com/elastos"
+  },
+  {
+    "name": "Decentraland",
+    "url": "https://github.com/decentraland"
+  },
+  {
+    "name": "Populous",
+    "url": "https://github.com/bitpopulous"
+  },
+  {
+    "name": "DigixDAO",
+    "url": "https://github.com/digixglobal"
+  },
+  {
+    "name": "Factom",
+    "url": "https://github.com/FactomProject"
+  },
+  {
+    "name": "Ripio",
+    "url": "https://github.com/ripio",
+	"geckoIdentifier": "ripio-coin"
+  },
+  {
+    "name": "IoTeX",
+    "url": "https://github.com/iotexproject"
+  },
+  {
+    "name": "Beam",
+    "url": "https://github.com/BeamMW"
+  },
+  {
+    "name": "Bread",
+    "url": "https://github.com/breadwallet"
+  },
+  {
+    "name": "Aion",
+    "url": "https://github.com/aionnetwork"
+  },
+  {
+    "name": "Nebulas",
+    "url": "https://github.com/nebulasio"
+  },
+  {
+    "name": "Fantom",
+    "url": "https://github.com/Fantom-Foundation"
+  },
+  {
+    "name": "Wanchain",
+    "url": "https://github.com/wanchain"
+  },
+  {
+    "name": "NULS",
+    "url": "https://github.com/nuls-io"
+  },
+  {
+    "name": "Waltonchain",
+    "url": "https://github.com/WaltonChain/"
+  },
+  {
+    "name": "Loopring",
+    "url": "https://github.com/loopring"
+  },
+  {
+    "name": "WAX",
+    "url": "https://github.com/worldwide-asset-exchange/"
+  },
+  {
+    "name": "WaykiChain",
+    "url": "https://github.com/WaykiChain"
+  },
+  {
+    "name": "Ark",
+    "url": "https://github.com/ArkEcosystem"
+  },
+  {
+    "name": "ReddCoin",
+    "url": "https://github.com/reddcoin-project"
+  },
+  {
+    "name": "Civic",
+    "url": "https://github.com/civicteam"
+  },
+  {
+    "name": "Project PAI",
+    "url": "https://github.com/projectpai/",
+	"geckoIdentifier": "project-pai"
+  },
+  {
+    "name": "Groestlcoin",
+    "url": "https://github.com/Groestlcoin"
+  },
+  {
+    "name": "FunFair",
+    "url": "https://github.com/funfair-tech"
+  },
+  {
+    "name": "Diamond Platform Token",
+    "url": "https://github.com/Cdiamondcoin",
+	"geckoIdentifier": "diamond-platform-token"
+  },
+  {
+    "name": "Loom Network",
+    "url": "https://github.com/loomnetwork",
+	"geckoIdentifier": "loom-network"
+  },
+  {
+    "name": "ODEM",
+    "url": "https://github.com/odemio"
+  },
+  {
+    "name": "Aragon",
+    "url": "https://github.com/aragon"
+  },
+  {
+    "name": "Bancor",
+    "url": "https://github.com/bancorprotocol/"
+  },
+  {
+    "name": "Streamr",
+    "url": "https://github.com/streamr-dev"
+  },
+  {
+    "name": "TomoChain",
+    "url": "https://github.com/tomochain/"
+  },
+  {
+    "name": "Storj",
+    "url": "https://github.com/storj"
+  },
+  {
+    "name": "TrueChain",
+    "url": "https://github.com/truechain",
+	"geckoIdentifier": "true-chain"
+  },
+  {
+    "name": "Celer Network",
+    "url": "https://github.com/celer-network",
+	"geckoIdentifier": "celer-network"
+  },
+  {
+    "name": "Matrix AI Network",
+    "url": "https://github.com/MatrixAINetwork",
+	"geckoIdentifier": "matrix-ai-network"
+  },
+  {
+    "name": "Hedera",
+    "url": "https://github.com/hashgraph",
+	"geckoIdentifier": "hedera-hashgraph"
+  },
+  {
+    "name": "Harmony",
+    "url": "https://github.com/harmony-one"
+  },
+  {
+    "name": "Vertcoin",
+    "url": "https://github.com/vertcoin-project"
+  },
+  {
+    "name": "Divi",
+    "url": "https://github.com/DiviProject"
+  }
+]

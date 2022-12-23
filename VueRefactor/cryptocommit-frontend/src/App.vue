@@ -136,6 +136,10 @@ export default {
         block: "start",
         inline: "nearest",
       });
+      //this API can be fed multiple coin at once
+      //https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true
+
+
     },
   },
 };
@@ -146,3 +150,4 @@ export default {
   font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 </style>
+
