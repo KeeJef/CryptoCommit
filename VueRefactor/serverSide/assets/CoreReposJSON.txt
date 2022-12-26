@@ -4,12 +4,174 @@
     "name": "Coti"
   },
   {
+    "url": "https://github.com/bnb-chain",
+    "name": "Binance",
+    "geckoIdentifier": "binancecoin"
+  },
+  {
+    "url": "https://github.com/ripple",
+    "name": "Ripple"
+  },
+  {
+    "url": "https://github.com/tronprotocol",
+    "name": "Tron"
+  },
+  {
+    "url": "https://github.com/input-output-hk",
+    "name": "Cardano"
+  },
+  {
+    "url": "https://github.com/paritytech",
+    "name": "Polkadot"
+  },
+  {
+    "url": "https://github.com/litecoin-project",
+    "name": "Litecoin"
+  },
+  {
+    "url": "https://github.com/solana-labs",
+    "name": "Solana"
+  },
+  {
+    "url": "https://github.com/Uniswap",
+    "name": "Uniswap"
+  },
+  {
+    "url": "https://github.com/ava-labs",
+    "name": "Avalanche",
+    "geckoIdentifier": "avalanche-2"
+  },
+  {
+    "url": "https://github.com/smartcontractkit",
+    "name": "Chainlink"
+  },
+  {
+    "url": "https://github.com/ton-blockchain",
+    "name": "TON",
+    "geckoIdentifier": "the-open-network"
+  },
+  {
+    "url": "https://github.com/monero-project",
+    "name": "Monero"
+  },
+  {
+    "url": "https://github.com/cosmos",
+    "name": "Cosmos"
+  },
+  {
+    "url": "https://github.com/bitcoin-cash-node",
+    "name": "Bitcoin Cash",
+    "geckoIdentifier": "bitcoin-cash"
+  },
+  {
+    "url": "https://github.com/stellar",
+    "name": "Stellar"
+  },
+  {
+    "url": "https://github.com/crypto-org-chain",
+    "name": "Cronos",
+    "geckoIdentifier": "crypto-com-chain"
+  },
+  {
+    "url": "https://github.com/bitcoin",
+    "name": "Bitcoin"
+  },
+  {
+    "url": "https://github.com/ethereum",
+    "name": "Ethereum"
+  },
+  {
+    "url": "https://github.com/near",
+    "name": "Near"
+  },
+  {
+    "url": "https://github.com/dfinity",
+    "name": "Internet Computer",
+    "geckoIdentifier": "internet-computer"
+  },
+  {
+    "url": "https://github.com/filecoin-project",
+    "name": "Filecoin"
+  },
+  {
+    "url": "https://github.com/eosio",
+    "name": "EOS"
+  },
+  {
+    "url": "https://github.com/bitcoin-sv",
+    "name": "Bitcoin SV",
+    "geckoIdentifier": "bitcoin-cash-sv"
+  },
+  {
+    "url": "https://github.com/ElrondNetwork",
+    "name": "Multiversx",
+    "geckoIdentifier": "elrond-erd-2"
+  },
+  {
+    "url": "https://github.com/onflow",
+    "name": "Flow"
+  },
+  {
+    "url": "https://github.com/thesandboxgame",
+    "name": "The Sandbox",
+    "geckoIdentifier": "the-sandbox"
+  },
+  {
+    "url": "https://github.com/iotaledger",
+    "name": "IOTA"
+  },
+  {
+    "url": "https://github.com/neo-project",
+    "name": "NEO"
+  },
+  {
+    "url": "https://github.com/FraxFinance",
+    "name": "Frax"
+  },
+  {
+    "url": "https://github.com/Ankr-network",
+    "name": "Ankr"
+  },
+  {
+    "url": "https://github.com/woonetwork",
+    "name": "Woo Network",
+    "geckoIdentifier": "woo-network"
+  },
+  {
+    "url": "https://github.com/TreasureProject",
+    "name": "Treasure",
+    "geckoIdentifier": "magic"
+  },
+  {
+    "url": "https://github.com/bloxapp",
+    "name": "SSV Network",
+    "geckoIdentifier": "ssv-network"
+  },
+  {
+    "url": "https://github.com/medibloc",
+    "name": "MediBloc"
+  },
+  {
+    "url": "https://github.com/radicle-dev",
+    "name": "Radicle"
+  },
+  {
+    "url": "https://github.com/syscoin",
+    "name": "Syscoin"
+  },
+  {
+    "url": "https://github.com/nervosnetwork",
+    "name": "Nervos",
+    "geckoIdentifier": "nervos-network"
+  },
+  {
     "url": "https://github.com/api3dao",
     "name": "API3"
   },
   {
     "url": "https://github.com/oceanprotocol",
-    "name": "Ocean"
+    "name": "Ocean",
+    "geckoIdentifier": "ocean-protocol"
   },
   {
     "url": "https://github.com/mobilecoinfoundation",
@@ -18,7 +180,7 @@
   {
     "url": "https://github.com/RequestNetwork",
     "name": "Request",
-	"geckoIdentifier": "request-network"
+    "geckoIdentifier": "request-network"
   },
   {
     "url": "https://github.com/skalenetwork",
@@ -31,7 +193,7 @@
   {
     "url": "https://github.com/InjectiveLabs",
     "name": "Injective",
-	"geckoIdentifier": "injective-protocol"
+    "geckoIdentifier": "injective-protocol"
   },
   {
     "url": "https://github.com/dydxfoundation",
@@ -40,7 +202,7 @@
   {
     "url": "https://github.com/energywebfoundation",
     "name": "Energy Web",
-	"geckoIdentifier": "energy-web-token"
+    "geckoIdentifier": "energy-web-token"
   },
   {
     "url": "https://github.com/Solar-network",
@@ -49,12 +211,12 @@
   {
     "url": "https://github.com/ribbon-finance",
     "name": "Ribbon",
-	"geckoIdentifier": "ribbon-finance"
+    "geckoIdentifier": "ribbon-finance"
   },
   {
     "url": "https://github.com/threshold-network",
     "name": "Threshold",
-	"geckoIdentifier": "threshold-network-token"
+    "geckoIdentifier": "threshold-network-token"
   },
   {
     "url": "https://github.com/AudiusProject",
@@ -83,7 +245,7 @@
   {
     "url": "https://github.com/sushiswap",
     "name": "SushiSwap",
-	"geckoIdentifier": "sushi"
+    "geckoIdentifier": "sushi"
   },
   {
     "url": "https://github.com/livepeer",
@@ -112,22 +274,22 @@
   {
     "url": "https://github.com/DimensionDev",
     "name": "Mask",
-	"geckoIdentifier": "mask-network"
+    "geckoIdentifier": "mask-network"
   },
   {
     "url": "https://github.com/xinfinorg",
     "name": "XDC",
-	"geckoIdentifier": "xdce-crowd-sale"
+    "geckoIdentifier": "xdce-crowd-sale"
   },
   {
     "url": "https://github.com/yearn",
     "name": "yearn",
-	"geckoIdentifier": "yearn-finance"
+    "geckoIdentifier": "yearn-finance"
   },
   {
     "name": "Oasis",
     "url": "https://github.com/oasisprotocol",
-	"geckoIdentifier": "oasis-network"
+    "geckoIdentifier": "oasis-network"
   },
   {
     "name": "Osmosis",
@@ -136,7 +298,7 @@
   {
     "name": "Compound",
     "url": "https://github.com/compound-finance",
-	"geckoIdentifier": "compound-coin"
+    "geckoIdentifier": "compound-governance-token"
   },
   {
     "name": "Balancer",
@@ -145,7 +307,7 @@
   {
     "name": "ENS",
     "url": "https://github.com/ensdomains",
-	"geckoIdentifier": "ethereum-name-service"
+    "geckoIdentifier": "ethereum-name-service"
   },
   {
     "name": "Helium",
@@ -154,7 +316,7 @@
   {
     "name": "Casper",
     "url": "https://github.com/casper-network",
-	"geckoIdentifier": "casper-network"
+    "geckoIdentifier": "casper-network"
   },
   {
     "name": "Arweave",
@@ -171,7 +333,7 @@
   {
     "name": "Enjin",
     "url": "https://github.com/enjin",
-	"geckoIdentifier": "enjincoin"
+    "geckoIdentifier": "enjincoin"
   },
   {
     "name": "1inch",
@@ -180,41 +342,42 @@
   {
     "name": "Stacks",
     "url": "https://github.com/stacks-network",
-	"geckoIdentifier": "blockstack"
+    "geckoIdentifier": "blockstack"
   },
   {
     "name": "Lido",
     "url": "https://github.com/lidofinance",
-	"geckoIdentifier": "staked-ether"
+    "geckoIdentifier": "staked-ether"
   },
   {
     "name": "ImmutableX",
     "url": "https://github.com/immutable",
-	"geckoIdentifier": "immutable-x"
+    "geckoIdentifier": "immutable-x"
   },
   {
     "name": "Curve",
     "url": "https://github.com/curvefi",
-	"geckoIdentifier": "curve-dao-token"
+    "geckoIdentifier": "curve-dao-token"
   },
   {
     "name": "Fei",
-    "url": "https://github.com/fei-protocol"
+    "url": "https://github.com/fei-protocol",
+    "geckoIdentifier": "fei-usd"
   },
   {
     "name": "EthereumPoW",
     "url": "https://github.com/ethereumpow",
-	"geckoIdentifier": "ethereum-pow-iou"
+    "geckoIdentifier": "ethereum-pow-iou"
   },
   {
     "name": "Mina",
     "url": "https://github.com/MinaProtocol",
-	"geckoIdentifier": "mina-protocol"
+    "geckoIdentifier": "mina-protocol"
   },
   {
     "name": "The Graph",
     "url": "https://github.com/graphprotocol",
-	"geckoIdentifier": "the-graph"
+    "geckoIdentifier": "the-graph"
   },
   {
     "name": "Thorchain",
@@ -227,12 +390,12 @@
   {
     "name": "Klaytn",
     "url": "https://github.com/klaytn",
-	"geckoIdentifier": "klay-token"
+    "geckoIdentifier": "klay-token"
   },
   {
     "name": "Pancake Swap",
     "url": "https://github.com/pancakeswap",
-	"geckoIdentifier": "pancakeswap-token"
+    "geckoIdentifier": "pancakeswap-token"
   },
   {
     "name": "Bitdao",
@@ -244,12 +407,13 @@
   },
   {
     "name": "Chain",
-    "url": "https://github.com/Chain"
+    "url": "https://github.com/Chain",
+    "geckoIdentifier": "chain-2"
   },
   {
     "name": "Axie Infinity",
     "url": "https://github.com/axieinfinity",
-	"geckoIdentifier": "axie-infinity"
+    "geckoIdentifier": "axie-infinity"
   },
   {
     "name": "Aave",
@@ -258,7 +422,7 @@
   {
     "name": "Maker/DAI",
     "url": "https://github.com/makerdao",
-	"geckoIdentifier": "maker"
+    "geckoIdentifier": "maker"
   },
   {
     "name": "Dash",
@@ -267,12 +431,12 @@
   {
     "name": "Ethereum Classic",
     "url": "https://github.com/ethereumclassic",
-	"geckoIdentifier": "ethereum-classic"
+    "geckoIdentifier": "ethereum-classic"
   },
   {
     "name": "USDC",
     "url": "https://github.com/centrehq",
-	"geckoIdentifier": "usd-coin"
+    "geckoIdentifier": "usd-coin"
   },
   {
     "name": "Ontology",
@@ -281,7 +445,7 @@
   {
     "name": "Oxen",
     "url": "https://github.com/oxen-io",
-	"geckoIdentifier": "loki-network"
+    "geckoIdentifier": "loki-network"
   },
   {
     "name": "VeChain",
@@ -290,7 +454,7 @@
   {
     "name": "Crypto.com",
     "url": "https://github.com/crypto-com",
-	"geckoIdentifier": "crypto-com-chain"
+    "geckoIdentifier": "crypto-com-chain"
   },
   {
     "name": "Symbol",
@@ -303,7 +467,7 @@
   {
     "name": "Basic Attention Token",
     "url": "https://github.com/brave",
-	"geckoIdentifier": "basic-attention-token"
+    "geckoIdentifier": "basic-attention-token"
   },
   {
     "name": "Zcash",
@@ -312,12 +476,12 @@
   {
     "name": "Synthetix",
     "url": "https://github.com/Synthetixio",
-	"geckoIdentifier": "havven"
+    "geckoIdentifier": "havven"
   },
   {
     "name": "Paxos",
     "url": "https://github.com/paxosglobal",
-	"geckoIdentifier": "paxos-standard"
+    "geckoIdentifier": "paxos-standard"
   },
   {
     "name": "Decred",
@@ -330,7 +494,7 @@
   {
     "name": "TrueUSD",
     "url": "https://github.com/trusttoken",
-	"geckoIdentifier": "true-usd"
+    "geckoIdentifier": "true-usd"
   },
   {
     "name": "0x",
@@ -339,7 +503,7 @@
   {
     "name": "Holo",
     "url": "https://github.com/holochain",
-	"geckoIdentifier": "holotoken"
+    "geckoIdentifier": "holotoken"
   },
   {
     "name": "Augur",
@@ -348,7 +512,7 @@
   {
     "name": "Bitcoin Gold",
     "url": "https://github.com/BTCGPU",
-	"geckoIdentifier": "bitcoin-gold"
+    "geckoIdentifier": "bitcoin-gold"
   },
   {
     "name": "Algorand",
@@ -385,7 +549,7 @@
   {
     "name": "KuCoin Shares",
     "url": "https://github.com/Kucoin",
-	"geckoIdentifier": "kucoin-shares"
+    "geckoIdentifier": "kucoin-shares"
   },
   {
     "name": "Bytom",
@@ -398,12 +562,12 @@
   {
     "name": "Quant",
     "url": "https://github.com/quantnetwork",
-	"geckoIdentifier": "quant-network"
+    "geckoIdentifier": "quant-network"
   },
   {
     "name": "Bitcoin Diamond",
     "url": "https://github.com/eveybcd",
-	"geckoIdentifier": "bitcoin-diamond"
+    "geckoIdentifier": "bitcoin-diamond"
   },
   {
     "name": "ICON",
@@ -412,7 +576,7 @@
   {
     "name": "THETA",
     "url": "https://github.com/thetatoken",
-	"geckoIdentifier": "theta-token"
+    "geckoIdentifier": "theta-token"
   },
   {
     "name": "BitTorrent",
@@ -421,7 +585,7 @@
   {
     "name": "IOST",
     "url": "https://github.com/iost-official",
-	"geckoIdentifier": "iostoken"
+    "geckoIdentifier": "iostoken"
   },
   {
     "name": "Verge",
@@ -434,7 +598,7 @@
   {
     "name": "Polygon",
     "url": "https://github.com/maticnetwork",
-	"geckoIdentifier": "matic-network"
+    "geckoIdentifier": "matic-network"
   },
   {
     "name": "Waves",
@@ -451,7 +615,7 @@
   {
     "name": "iExec RLC",
     "url": "https://github.com/iExecBlockchainComputing",
-	"geckoIdentifier": "iexec-rlc"
+    "geckoIdentifier": "iexec-rlc"
   },
   {
     "name": "MaidSafeCoin",
@@ -460,7 +624,7 @@
   {
     "name": "HyperCash",
     "url": "https://github.com/HcashOrg",
-	"geckoIdentifier": "hshare"
+    "geckoIdentifier": "hshare"
   },
   {
     "name": "Nexo",
@@ -469,7 +633,7 @@
   {
     "name": "DxChain Token",
     "url": "https://github.com/DxChainNetwork",
-	"geckoIdentifier": "dxchain"
+    "geckoIdentifier": "dxchain"
   },
   {
     "name": "Steem",
@@ -482,7 +646,7 @@
   {
     "name": "SOLVE",
     "url": "https://github.com/SolveCare",
-	"geckoIdentifier": "solve-care"
+    "geckoIdentifier": "solve-care"
   },
   {
     "name": "Zilliqa",
@@ -491,17 +655,17 @@
   {
     "name": "Thunder Token",
     "url": "https://github.com/thundercore",
-	"geckoIdentifier": "thunder-token"
+    "geckoIdentifier": "thunder-token"
   },
   {
     "name": "Secret Network",
     "url": "https://github.com/scrtlabs",
-	"geckoIdentifier": "secret"
+    "geckoIdentifier": "secret"
   },
   {
     "name": "Horizen",
     "url": "https://github.com/HorizenOfficial",
-	"geckoIdentifier": "zencash"
+    "geckoIdentifier": "zencash"
   },
   {
     "name": "Golem",
@@ -514,7 +678,7 @@
   {
     "name": "Pundi X",
     "url": "https://github.com/pundix",
-	"geckoIdentifier": "pundi-x-2"
+    "geckoIdentifier": "pundi-x-2"
   },
   {
     "name": "Energi",
@@ -531,32 +695,32 @@
   {
     "name": "Fetch.ai",
     "url": "https://github.com/fetchai",
-	"geckoIdentifier": "fetch-ai"
+    "geckoIdentifier": "fetch-ai"
   },
   {
     "name": "RIF Token",
     "url": "https://github.com/riflabs",
-	"geckoIdentifier": "rif-token"
+    "geckoIdentifier": "rif-token"
   },
   {
     "name": "Firo",
     "url": "https://github.com/firoorg",
-	"geckoIdentifier": "zcoin"
+    "geckoIdentifier": "zcoin"
   },
   {
     "name": "REN",
     "url": "https://github.com/renproject",
-	"geckoIdentifier": "republic-protocol"
+    "geckoIdentifier": "republic-protocol"
   },
   {
     "name": "Fusion",
     "url": "https://github.com/FUSIONFoundation",
-	"geckoIdentifier": "fsn"
+    "geckoIdentifier": "fsn"
   },
   {
     "name": "Newton",
     "url": "https://github.com/newtonproject",
-	"geckoIdentifier": "newton-project"
+    "geckoIdentifier": "newton-project"
   },
   {
     "name": "Lambda",
@@ -565,17 +729,17 @@
   {
     "name": "REI Network",
     "url": "https://github.com/rei-network",
-	"geckoIdentifier": "rei-network"
+    "geckoIdentifier": "rei-network"
   },
   {
     "name": "Kyber Network",
     "url": "https://github.com/kybernetwork",
-	"geckoIdentifier": "kyber-network-crystal"
+    "geckoIdentifier": "kyber-network-crystal"
   },
   {
     "name": "Metaverse ETP",
     "url": "https://github.com/mvs-org",
-	"geckoIdentifier": "metaverse-etp"
+    "geckoIdentifier": "metaverse-etp"
   },
   {
     "name": "Stratis",
@@ -592,7 +756,7 @@
   {
     "name": "Nash",
     "url": "https://github.com/nash-io",
-	"geckoIdentifier": "neon-exchange"
+    "geckoIdentifier": "neon-exchange"
   },
   {
     "name": "Elastos",
@@ -617,7 +781,7 @@
   {
     "name": "Ripio",
     "url": "https://github.com/ripio",
-	"geckoIdentifier": "ripio-coin"
+    "geckoIdentifier": "ripio-coin"
   },
   {
     "name": "IoTeX",
@@ -680,11 +844,6 @@
     "url": "https://github.com/civicteam"
   },
   {
-    "name": "Project PAI",
-    "url": "https://github.com/projectpai/",
-	"geckoIdentifier": "project-pai"
-  },
-  {
     "name": "Groestlcoin",
     "url": "https://github.com/Groestlcoin"
   },
@@ -693,14 +852,9 @@
     "url": "https://github.com/funfair-tech"
   },
   {
-    "name": "Diamond Platform Token",
-    "url": "https://github.com/Cdiamondcoin",
-	"geckoIdentifier": "diamond-platform-token"
-  },
-  {
     "name": "Loom Network",
     "url": "https://github.com/loomnetwork",
-	"geckoIdentifier": "loom-network"
+    "geckoIdentifier": "loom-network"
   },
   {
     "name": "ODEM",
@@ -729,22 +883,22 @@
   {
     "name": "TrueChain",
     "url": "https://github.com/truechain",
-	"geckoIdentifier": "true-chain"
+    "geckoIdentifier": "true-chain"
   },
   {
     "name": "Celer Network",
     "url": "https://github.com/celer-network",
-	"geckoIdentifier": "celer-network"
+    "geckoIdentifier": "celer-network"
   },
   {
     "name": "Matrix AI Network",
     "url": "https://github.com/MatrixAINetwork",
-	"geckoIdentifier": "matrix-ai-network"
+    "geckoIdentifier": "matrix-ai-network"
   },
   {
     "name": "Hedera",
     "url": "https://github.com/hashgraph",
-	"geckoIdentifier": "hedera-hashgraph"
+    "geckoIdentifier": "hedera-hashgraph"
   },
   {
     "name": "Harmony",

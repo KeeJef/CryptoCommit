@@ -152,13 +152,8 @@ async function getMarketData(fetchedRepos) {
       var response = await axios.get(
         `https://api.coingecko.com/api/v3/simple/price?ids=${element}&vs_currencies=usd&include_market_cap=true`
       );
-      if (Object.keys(response.data).length === 0) {
-        fetchedRepos[index].marketData = response.data[element].usd_market_cap;
-      }
-      else{
-        fetchedRepos[index].marketData = null
-      }
-      console.log("Got market data for " + element);
+      fetchedRepos[index].marketData = response.data[element].usd_market_cap;
+      console.log("Got market data for " + element + "Cap: " + fetchedRepos[index].marketData);
     } catch (error) {
       console.log(error);
         if(error.response.status == 429){
