@@ -32,6 +32,11 @@
     </div>
   </header>
   <div class="text-center pt-5 pb-2 text-xl px-4">Aggregate Github commit history across all repositories of a project with more than 10 stars</div>
+  <div class="flex justify-center pt-3">Sort By</div>
+  <div class="flex justify-center gap-1">
+    <button @click="sortProjectsByCommits">Commits</button>
+    <button @click="sortProjectsByWeighted">Weighted</button>
+  </div>
 </template>
 
 <script>
@@ -61,6 +66,12 @@ export default {
     },
     pushEventUpstream(){
       this.$emit('projectSelected', this.projectSelected);
+    },
+    sortProjectsByCommits(){
+      this.$emit('sortProjectsByCommits');
+    },
+    sortProjectsByWeighted(){
+      this.$emit('sortProjectsByWeighted');
     }
   }
 };

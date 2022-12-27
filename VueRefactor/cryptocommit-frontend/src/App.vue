@@ -1,6 +1,8 @@
 <template>
   <menuBar
     @projectSelected="processSearchSelection($event)"
+    @sortProjectsByCommits="sortProjectsByCommits"
+    @sortProjectsByWeighted="sortProjectsByWeighted"
     :projectList="this.projectNames"
   ></menuBar>
 
@@ -14,17 +16,25 @@
       v-if="project"
       class="mx-2 mt-2 mb-5 rounded-md shadow-xl border-slate-100 border-2 lg:mx-32 xl:mx-60 relative"
     >
-    <div class="flex justify-center text-xl font-bold pt-2">
-      <a target="blank" :href="project.coreURL">{{ project.title }} </a>
-    </div>
+      <div class="flex justify-center text-xl font-bold pt-2">
+        <a target="blank" :href="project.coreURL">{{ project.title }} </a>
+      </div>
 
       <div class="flex justify-between text-lg px-2 md:px-5">
-        <div class="flex items-center self-start">
-          Rank
-          <span
-            class="ml-1 py-0.5 px-2 bg-green-500 rounded-md text-white font-bold"
-            >{{ project.rank }}</span
-          >
+        <div class="flex flex-col">
+          <div class="flex items-center self-start">
+            Commit Rank
+            <span
+              class="ml-1 py-0.5 px-2 bg-green-500 rounded-md text-white font-bold"
+              >{{ project.rank }}</span
+            >
+          </div>
+          <div class="flex items-center self-start text-xs pt-1">
+            Market Cap Weighted Score:
+            <span class="pl-1">{{
+              Math.round(project.marketCapWeightedScore * 10) / 10
+            }}</span>
+          </div>
         </div>
         <div class="flex flex-col">
           <div class="flex items-center justify-end text-xs md:text-lg">
@@ -120,6 +130,27 @@ export default {
       window.scrollTo(0, 0);
     },
 
+    sortProjectsByCommits() {
+      this.projects.sort((a, b) => {
+        return b.totalCommits - a.totalCommits;
+      });
+      this.updatePage(1);
+    },
+
+    sortProjectsByWeighted() {
+      //sort by weighted score lowest to highest, any null values will be at the end of the list
+      this.projects.sort((a, b) => {
+        if (a.marketCapWeightedScore == null) {
+          return 1;
+        } else if (b.marketCapWeightedScore == null) {
+          return -1;
+        } else {
+          return a.marketCapWeightedScore - b.marketCapWeightedScore;
+        }
+      });
+      this.updatePage(1);
+    },
+
     async processSearchSelection(projectName) {
       //find index of projectName in projectNames array
       var index = this.projectNames.indexOf(projectName);
@@ -138,8 +169,6 @@ export default {
       });
       //this API can be fed multiple coin at once
       //https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true
-
-
     },
   },
 };
@@ -150,4 +179,3 @@ export default {
   font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 </style>
-

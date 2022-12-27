@@ -109,7 +109,9 @@ async function fetchList(repoList) {
   coinObject.totalRepoCount = repoList.repositories.length;
   coinObject.totalCommits = weeklyCommitSummation.reduce((a, b) => a + b, 0);
   coinObject.marketCapWeightedScore = (repoList.marketData / coinObject.totalCommits) / 1000
-  console.log("Market cap weighted score is "+ coinObject.marketCapWeightedScore)
+  if (coinObject.marketCapWeightedScore == 0) {
+    coinObject.marketCapWeightedScore = null
+  }
   coinObject.coreURL = coreRepoURL;
   coinObject.topRepoURL = topRepoURL;
   coinObject.lastUpdateTime = new Date().toISOString();

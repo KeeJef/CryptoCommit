@@ -224,7 +224,8 @@
   },
   {
     "url": "https://github.com/runonflux",
-    "name": "Flux"
+    "name": "Flux",
+	"geckoIdentifier": "zelcash"
   },
   {
     "url": "https://github.com/AstarNetwork",
