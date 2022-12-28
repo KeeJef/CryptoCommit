@@ -3,7 +3,7 @@
     @projectSelected="processSearchSelection($event)"
     @sortProjectsByCommits="sortProjectsByCommits"
     @sortProjectsByWeighted="sortProjectsByWeighted"
-    :projectList="this.projectNames"
+    :projectList="projects.map(v => (v.title))"
   ></menuBar>
 
   <div
@@ -14,9 +14,9 @@
   >
     <div
       v-if="project"
-      class="mx-2 mt-2 mb-5 rounded-md shadow-xl border-slate-100 border-2 lg:mx-32 xl:mx-60 relative"
+      class="mx-2 mt-2 mb-5 rounded-md shadow-xl border-slate-200 border-2 lg:mx-32 xl:mx-60 relative"
     >
-      <div class="flex justify-center text-xl font-bold pt-2">
+      <div class="flex justify-center text-xl font-bold pt-2 pb-2 sm:pb-0">
         <a target="blank" :href="project.coreURL">{{ project.title }} </a>
       </div>
 
@@ -30,7 +30,7 @@
             >
           </div>
           <div class="flex items-center self-start text-xs pt-1">
-            Market Cap Weighted Score:
+            Market Weighted Score:
             <span class="pl-1">{{
               Math.round(project.marketCapWeightedScore * 10) / 10
             }}</span>
@@ -49,7 +49,7 @@
           <div class="text-xs flex justify-end">
             Top Repo:
             <a class="pl-1" :href="project.topRepoURL">
-              {{ project.topRepoURL.split("/")[4] }}</a
+              {{ project.topRepoURL.split("/")[4].substring(0,12) }}</a
             >
           </div>
         </div>
@@ -59,11 +59,13 @@
   </div>
   <div v-if="this.projects.length" class="flex justify-center">
     <pageCounter
+      ref="pageCounter"
       @changePage="updatePage($event)"
       :maxItems="projects.length"
       :itemsPerPage="10"
     ></pageCounter>
   </div>
+  <div v-if="projects[0]" class="flex justify-center italic">Last Updated {{projects[0].lastUpdateTime}}</div>
 </template>
 
 <script>
@@ -78,7 +80,6 @@ export default {
   data() {
     return {
       projects: [],
-      projectNames: [],
       currentlyShowProjects: [],
       resultsPerPage: 10,
     };
@@ -95,7 +96,6 @@ export default {
         "http://192.168.0.6:8081/weeklyCoinCommitNumber.txt"
       );
       this.projects = response.data;
-      this.projectNames = await this.filterProjectName(this.projects);
       this.currentlyShowProjects = this.projects.slice(0, this.resultsPerPage);
     } catch (error) {
       console.log("could not fetch chart data");
@@ -104,17 +104,6 @@ export default {
     }
   },
   methods: {
-    //get project names
-    async filterProjectName(list) {
-      var projectNames = [];
-      for (var i = 0; i < list.length; i++) {
-        //todo fix this data being null in the script, we should never get null data from the api
-        if (list[i] != null) {
-          projectNames.push(list[i].title);
-        }
-      }
-      return projectNames;
-    },
     updatePage(page) {
       if (page == 1) {
         this.currentlyShowProjects = this.projects.slice(
@@ -134,7 +123,7 @@ export default {
       this.projects.sort((a, b) => {
         return b.totalCommits - a.totalCommits;
       });
-      this.updatePage(1);
+      this.$refs.pageCounter.changePage(1);
     },
 
     sortProjectsByWeighted() {
@@ -148,16 +137,18 @@ export default {
           return a.marketCapWeightedScore - b.marketCapWeightedScore;
         }
       });
-      this.updatePage(1);
+      console.log("button pressed");
+      console.log(this.$refs.pageCounter);
+      this.$refs.pageCounter.changePage(1);
     },
 
     async processSearchSelection(projectName) {
-      //find index of projectName in projectNames array
-      var index = this.projectNames.indexOf(projectName);
+      //find index of projectName in projects array
+      var index = this.projects.map(v => (v.title)).indexOf(projectName);
       //array is 0 indexed, so add 1 to the index we calculated
       var pageNumber = (index + 1) / this.resultsPerPage;
       pageNumber = Math.ceil(pageNumber);
-      this.updatePage(pageNumber);
+      this.$refs.pageCounter.changePage(pageNumber);
       //wait for page to update then scroll to project
       await nextTick();
 

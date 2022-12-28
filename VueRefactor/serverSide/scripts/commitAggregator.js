@@ -114,7 +114,7 @@ async function fetchList(repoList) {
   }
   coinObject.coreURL = coreRepoURL;
   coinObject.topRepoURL = topRepoURL;
-  coinObject.lastUpdateTime = new Date().toISOString();
+  coinObject.lastUpdateTime = new Date().toUTCString();
   return coinObject;
 }
 
