@@ -93,7 +93,7 @@ export default {
     //fetch data using axios
     try {
       var response = await axios.get(
-        "http://192.168.0.6:8081/weeklyCoinCommitNumber.txt"
+        "https://cryptocommit.org/stats/weeklyCoinCommitNumber.txt"
       );
       this.projects = response.data;
       this.currentlyShowProjects = this.projects.slice(0, this.resultsPerPage);
