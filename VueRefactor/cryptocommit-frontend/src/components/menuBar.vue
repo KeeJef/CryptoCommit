@@ -17,6 +17,7 @@
     </div>
     <div class="flex justify-end self-center pr-2 md:pr-4">
       <SimpleTypeahead
+      ref="typeahead"
         class="p-2 text-black w-full"
         id="typeahead_id"
         placeholder="Search..."
@@ -92,10 +93,11 @@ export default {
   methods: {
     selectItemEventHandler(project) {
       this.projectSelected = project;
+      this.$refs.typeahead.input = project;
       this.pushEventUpstream();
     },
     compositionUpdate(event) {
-      this.$refs.SimpleTypeahead.input = event.data;
+      this.$refs.typeahead.input = event.data;
     },
     pushEventUpstream() {
       this.$emit("projectSelected", this.projectSelected);

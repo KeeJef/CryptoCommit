@@ -48,9 +48,12 @@
           </div>
           <div class="text-xs flex justify-end">
             Top Repo:
-            <a class="pl-1" :href="project.topRepoURL">
+            <a v-if="project.topRepoURL" class="pl-1" :href="project.topRepoURL">
               {{ project.topRepoURL.split("/")[4].substring(0,12) }}</a
             >
+            <span v-else class="pl-1">
+              No top repo
+            </span>
           </div>
         </div>
       </div>
@@ -73,7 +76,8 @@ import menuBar from "./components/menuBar.vue";
 import pageCounter from "./components/pageCounter.vue";
 import orgChart from "./components/orgChart.vue";
 import axios from "axios";
-import { nextTick } from "vue";
+
+ import { nextTick } from "vue";
 
 export default {
   name: "App",
@@ -142,6 +146,8 @@ export default {
       this.$refs.pageCounter.changePage(1);
     },
 
+    
+
     async processSearchSelection(projectName) {
       //find index of projectName in projects array
       var index = this.projects.map(v => (v.title)).indexOf(projectName);
@@ -150,14 +156,11 @@ export default {
       pageNumber = Math.ceil(pageNumber);
       this.$refs.pageCounter.changePage(pageNumber);
       //wait for page to update then scroll to project
-      await nextTick();
 
-      var container = this.$refs[projectName][0];
-      container.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest",
-      });
+      await nextTick()
+      this.$refs[projectName][0].scrollIntoView({})
+      // this.scrollTo( this.$refs[projectName][0], 0, 600)
+
       //this API can be fed multiple coin at once
       //https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true
     },
