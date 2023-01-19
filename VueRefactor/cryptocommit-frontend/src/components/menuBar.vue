@@ -35,7 +35,7 @@
   </header>
   <div class="text-center pt-5 pb-2 text-xl px-4">
     Aggregate Github commit stats across all repos of a project with
-    more than 10 stars ⭐
+    more than 20 stars ⭐
   </div>
   <div class="border-b-2 border-slate-100"></div>
   <div class="flex justify-center pb-1 pt-3 text-lg">Sort By</div>
