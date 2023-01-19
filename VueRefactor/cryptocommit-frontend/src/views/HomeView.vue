@@ -3,7 +3,7 @@
     @projectSelected="processSearchSelection($event)"
     @sortProjectsByCommits="sortProjectsByCommits"
     @sortProjectsByWeighted="sortProjectsByWeighted"
-    :projectList="projects.map(v => (v.title))"
+    :projectList="projects.map((v) => v.title)"
   ></menuBar>
 
   <div
@@ -22,14 +22,38 @@
 
       <div class="flex justify-between text-lg px-2 md:px-5">
         <div class="flex flex-col">
-          <div class="flex items-center self-start">
+          <div v-if="!showWeighted" class="flex items-center self-start">
             Commit Rank
             <span
               class="ml-1 py-0.5 px-2 bg-green-500 rounded-md text-white font-bold"
               >{{ project.rank }}</span
             >
           </div>
-          <div class="flex items-center self-start text-xs pt-1">
+          <div v-else class="flex items-center self-start">
+            Weighted Rank
+            <span
+              class="ml-1 py-0.5 px-2 bg-green-500 rounded-md text-white font-bold"
+              >{{ project.weightedIndex }}</span
+            >
+          </div>
+          <div
+            v-if="showWeighted"
+            class="flex items-center self-start text-xs pt-1"
+          >
+            Commit Rank:
+            <span class="pl-1">{{ project.rank }}</span>
+          </div>
+          <div
+            v-if="!showWeighted"
+            class="flex items-center self-start text-xs pt-1"
+          >
+            Weighted Rank:
+            <span class="pl-1">{{ project.weightedIndex }}</span>
+          </div>
+          <div
+            v-if="showWeighted"
+            class="flex items-center self-start text-xs pt-1"
+          >
             Market Weighted Score:
             <span class="pl-1">{{
               Math.round(project.marketCapWeightedScore * 10) / 10
@@ -48,12 +72,14 @@
           </div>
           <div class="text-xs flex justify-end">
             Top Repo:
-            <a v-if="project.topRepoURL" class="pl-1" :href="project.topRepoURL">
-              {{ project.topRepoURL.split("/")[4].substring(0,12) }}</a
+            <a
+              v-if="project.topRepoURL"
+              class="pl-1"
+              :href="project.topRepoURL"
             >
-            <span v-else class="pl-1">
-              No top repo
-            </span>
+              {{ project.topRepoURL.split("/")[4].substring(0, 12) }}</a
+            >
+            <span v-else class="pl-1"> No top repo </span>
           </div>
         </div>
       </div>
@@ -68,7 +94,9 @@
       :itemsPerPage="10"
     ></pageCounter>
   </div>
-  <div v-if="projects[0]" class="flex justify-center italic">Last Updated {{projects[0].lastUpdateTime}}</div>
+  <div v-if="projects[0]" class="flex justify-center italic">
+    Last Updated {{ projects[0].lastUpdateTime }}
+  </div>
 </template>
 
 <script>
@@ -77,7 +105,7 @@ import pageCounter from "../components/pageCounter.vue";
 import orgChart from "../components/orgChart.vue";
 import axios from "axios";
 
- import { nextTick } from "vue";
+import { nextTick } from "vue";
 
 export default {
   name: "HomeView",
@@ -86,6 +114,7 @@ export default {
       projects: [],
       currentlyShowProjects: [],
       resultsPerPage: 10,
+      showWeighted: false,
     };
   },
   components: {
@@ -105,6 +134,7 @@ export default {
       if (this.$route.query.page) {
         this.updatePage(this.$route.query.page);
       }
+      this.calculateWeightedScore()
     } catch (error) {
       console.log("could not fetch chart data");
       console.log(error);
@@ -114,6 +144,8 @@ export default {
   methods: {
     updatePage(page) {
       if (page == 1) {
+        //remove page query parameter entirely from url
+        this.$router.replace("/");
         this.currentlyShowProjects = this.projects.slice(
           0,
           this.resultsPerPage
@@ -130,14 +162,16 @@ export default {
     },
 
     sortProjectsByCommits() {
+      this.showWeighted = false;
       this.projects.sort((a, b) => {
         return b.totalCommits - a.totalCommits;
       });
       this.$refs.pageCounter.changePage(1);
     },
 
-    sortProjectsByWeighted() {
-      //sort by weighted score lowest to highest, any null values will be at the end of the list
+    calculateWeightedScore() {
+      //sort by weighted score highest to lowest, any null values will be at the beginning of the list, add a new property to the object to store the index
+
       this.projects.sort((a, b) => {
         if (a.marketCapWeightedScore == null) {
           return 1;
@@ -147,24 +181,29 @@ export default {
           return a.marketCapWeightedScore - b.marketCapWeightedScore;
         }
       });
-      console.log("button pressed");
-      console.log(this.$refs.pageCounter);
+
+      for (var i = 0; i < this.projects.length; i++) {
+        this.projects[i].weightedIndex = i + 1;
+      }
+    },
+
+    sortProjectsByWeighted() {
+      this.showWeighted = true;
+      this.calculateWeightedScore();
       this.$refs.pageCounter.changePage(1);
     },
 
-    
-
     async processSearchSelection(projectName) {
       //find index of projectName in projects array
-      var index = this.projects.map(v => (v.title)).indexOf(projectName);
+      var index = this.projects.map((v) => v.title).indexOf(projectName);
       //array is 0 indexed, so add 1 to the index we calculated
       var pageNumber = (index + 1) / this.resultsPerPage;
       pageNumber = Math.ceil(pageNumber);
       this.$refs.pageCounter.changePage(pageNumber);
       //wait for page to update then scroll to project
 
-      await nextTick()
-      this.$refs[projectName][0].scrollIntoView({})
+      await nextTick();
+      this.$refs[projectName][0].scrollIntoView({});
       // this.scrollTo( this.$refs[projectName][0], 0, 600)
 
       //this API can be fed multiple coin at once
