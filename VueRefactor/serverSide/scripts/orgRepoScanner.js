@@ -59,7 +59,7 @@ async function parseRepos(repos, org, geckoIdentifier) {
   try {
     for (let index = 0; index < repos.length; index++) {
       const element = repos[index];
-      if (element.stargazers_count >= 10 && element.archived == false) {
+      if (element.stargazers_count >= 20 && element.archived == false) {
         jsonInfo.repositories.push(element.html_url);
       }
     }

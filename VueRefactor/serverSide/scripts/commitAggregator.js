@@ -108,6 +108,7 @@ async function fetchList(repoList) {
   coinObject.weeklyCommitSummation = weeklyCommitSummation;
   coinObject.totalRepoCount = repoList.repositories.length;
   coinObject.totalCommits = weeklyCommitSummation.reduce((a, b) => a + b, 0);
+  coinObject.marketData = repoList.marketData;
   coinObject.marketCapWeightedScore = (repoList.marketData / coinObject.totalCommits) / 1000
   if (coinObject.marketCapWeightedScore == 0) {
     coinObject.marketCapWeightedScore = null

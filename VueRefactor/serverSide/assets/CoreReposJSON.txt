@@ -225,7 +225,7 @@
   {
     "url": "https://github.com/runonflux",
     "name": "Flux",
-	"geckoIdentifier": "zelcash"
+    "geckoIdentifier": "zelcash"
   },
   {
     "url": "https://github.com/AstarNetwork",
@@ -912,5 +912,55 @@
   {
     "name": "Divi",
     "url": "https://github.com/DiviProject"
+  },
+  {
+    "name": "Cardstack",
+    "url": "https://github.com/cardstack"
+  },
+  {
+    "name": "Particl",
+    "url": "https://github.com/particl"
+  },
+  {
+    "name": "Deso",
+    "url": "https://github.com/deso-protocol"
+  },
+  {
+    "name": "Reef",
+    "url": "https://github.com/reef-defi"
+  },
+  {
+    "name": "Zus",
+    "url": "https://github.com/0chain",
+    "geckoIdentifier": "0chain"
+  },
+  {
+    "name": "PIVX",
+    "url": "https://github.com/PIVX-Project"
+  },
+  {
+    "name": "Arqma",
+    "url": "https://github.com/arqma"
+  },
+  {
+    "name": "Conceal",
+    "url": "https://github.com/ConcealNetwork"
+  },
+  {
+    "name": "LTO Network",
+    "url": "https://github.com/ltonetwork",
+    "geckoIdentifier": "lto-network"
+  },
+  {
+    "name": "SingularityNET",
+    "url": "https://github.com/singnet"
+  },
+  {
+    "name": "OriginTrail",
+    "url": "https://github.com/OriginTrail"
+  },
+  {
+    "name": "NKN",
+    "url": "https://github.com/nknorg"
   }
 ]

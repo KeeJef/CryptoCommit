@@ -97,7 +97,7 @@ export default {
     //fetch data using axios
     try {
       var response = await axios.get(
-        "https://cryptocommit.org/stats/weeklyCoinCommitNumber.txt"
+        "http://127.0.0.1:8081/weeklyCoinCommitNumber.txt"
       );
       this.projects = response.data;
       this.currentlyShowProjects = this.projects.slice(0, this.resultsPerPage);
@@ -115,6 +115,8 @@ export default {
           this.resultsPerPage
         );
       } else {
+        //update path to show page number
+        this.$router.push({ path: "/page/" + page });
         this.currentlyShowProjects = this.projects.slice(
           (page - 1) * this.resultsPerPage,
           page * this.resultsPerPage
