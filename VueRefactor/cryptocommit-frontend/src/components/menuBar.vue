@@ -9,6 +9,12 @@
       >
         <a href="https://trustedsetup.typeform.com/to/uChiNE"><div class="text-black text-lg select-none cursor-pointer">Request a project...</div></a>
       </div>
+      <!-- <div
+        class="justify-center whitespace-nowrap items-center px-6 hidden lg:flex"
+        @click="this.$router.push('/about')"
+      >
+        <a><div class="text-black text-lg select-none cursor-pointer">About</div></a>
+      </div> -->
     </div>
     <div class="flex justify-self-center self-center px-2 md:px-4">
       <a href="."

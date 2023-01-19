@@ -94,9 +94,15 @@
       :itemsPerPage="10"
     ></pageCounter>
   </div>
-  <div v-if="projects[0]" class="flex justify-center italic">
-    Last Updated {{ projects[0].lastUpdateTime }}
-  </div>
+    <div v-if="projects[0]" class="flex justify-center italic">
+      Last Updated {{ projects[0].lastUpdateTime }}
+    </div>
+    <!-- <div class="flex flex-row justify-center gap-5 pt-5">
+      <div><a href="https://github.com/keejef/cryptocommit">Github</a></div>
+      <div class=""><a href="https://trustedsetup.typeform.com/to/uChiNE">Request a project...</a></div>
+      <div>About</div>
+    </div> -->
+    
 </template>
 
 <script>
@@ -134,7 +140,7 @@ export default {
       if (this.$route.query.page) {
         this.updatePage(this.$route.query.page);
       }
-      this.calculateWeightedScore()
+      this.calculateWeightedScore();
     } catch (error) {
       console.log("could not fetch chart data");
       console.log(error);
