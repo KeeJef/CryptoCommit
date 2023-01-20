@@ -4,6 +4,7 @@
     @sortProjectsByCommits="sortProjectsByCommits"
     @sortProjectsByWeighted="sortProjectsByWeighted"
     :projectList="projects.map((v) => v.title)"
+    :showSorting="true"
   ></menuBar>
 
   <div
@@ -97,11 +98,11 @@
     <div v-if="projects[0]" class="flex justify-center italic">
       Last Updated {{ projects[0].lastUpdateTime }}
     </div>
-    <!-- <div class="flex flex-row justify-center gap-5 pt-5">
-      <div><a href="https://github.com/keejef/cryptocommit">Github</a></div>
-      <div class=""><a href="https://trustedsetup.typeform.com/to/uChiNE">Request a project...</a></div>
-      <div>About</div>
-    </div> -->
+    <div class="flex flex-row justify-center gap-5 pt-5 pb-5">
+      <div class="font-medium text-blue-600 dark:text-blue-500 hover:underline" ><a href="https://github.com/keejef/cryptocommit">Github</a></div>
+      <div class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><a href="https://trustedsetup.typeform.com/to/uChiNE">Request a project</a></div>
+      <div @click="this.$router.push('about')" class="font-medium cursor-pointer text-blue-600 dark:text-blue-500 hover:underline">About</div>
+    </div>
     
 </template>
 

@@ -9,18 +9,14 @@
       >
         <a href="https://trustedsetup.typeform.com/to/uChiNE"><div class="text-black text-lg select-none cursor-pointer">Request a project...</div></a>
       </div>
-      <!-- <div
-        class="justify-center whitespace-nowrap items-center px-6 hidden lg:flex"
-        @click="this.$router.push('/about')"
-      >
-        <a><div class="text-black text-lg select-none cursor-pointer">About</div></a>
-      </div> -->
+
     </div>
     <div class="flex justify-self-center self-center px-2 md:px-4">
       <a href="."
         ><img src="../assets/CryptoCommitLogo.webp" alt="CryptoCommit Logo"
       /></a>
     </div>
+    
     <div class="flex justify-end self-center pr-2 md:pr-4">
       <SimpleTypeahead
       ref="typeahead"
@@ -39,13 +35,14 @@
       </SimpleTypeahead>
     </div>
   </header>
-  <div class="text-center pt-5 pb-2 text-xl px-4">
+  <!-- this is messy, should just break out this conditional stuff into a different component -->
+  <div v-if="showSorting" class="text-center pt-5 pb-2 text-xl px-4">
     Aggregate Github commit stats across all repos of a project with
     more than 20 stars ⭐
   </div>
-  <div class="border-b-2 border-slate-100"></div>
-  <div class="flex justify-center pb-1 pt-3 text-lg">Sort By</div>
-  <div class="flex justify-center gap-1 mb-2">
+  <div v-if="showSorting" class="border-b-2 border-slate-100"></div>
+  <div v-if="showSorting" class="flex justify-center pb-1 pt-3 text-lg">Sort By</div>
+  <div v-if="showSorting" class="flex justify-center gap-1 mb-2">
     <button
       :class="{
         'ml-1 py-0.5 px-2 bg-green-500 rounded-md text-white font-bold hover:bg-green-600':
@@ -92,6 +89,7 @@ export default {
   },
   props: {
     projectList: Array,
+    showSorting: Boolean,
   },
   components: {
     SimpleTypeahead,

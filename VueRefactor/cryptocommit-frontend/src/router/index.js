@@ -19,6 +19,9 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
+  scrollBehavior() {
+    // always scroll to top
+  },
   routes
 })
 
