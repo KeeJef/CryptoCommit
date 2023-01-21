@@ -98,6 +98,7 @@ export default {
     selectItemEventHandler(project) {
       this.projectSelected = project;
       this.$refs.typeahead.input = project;
+      this.$refs.typeahead.input = "";
       this.pushEventUpstream();
     },
     compositionUpdate(event) {

@@ -7,9 +7,7 @@
         What is Cryptocommit?
       </div>
       <div class="text-xl flex justify-start text-left pb-5">
-        Cryptocommit aggregates Github statistics for different crypto projects
-        and allows users to compare different crypto projects on a number of
-        metrics.
+        Cryptocommit is a tool that collects and aggregates Github statistics for various cryptocurrency projects, providing users with a way to evaluate different projects based on various metrics.
       </div>
     </div>
 
@@ -20,16 +18,13 @@
       </div>
       <div class="text-xl flex justify-start text-left pb-5">
         <p>
-          Typically these sites only show data from the main repository of a
-          project, this can mean that data inaccurately represents the developer
-          activity of a project. For example if a website only tracks the
+          Cryptocommit distinguishes itself from other developer score websites like CryptoMiso by collecting data from all repositories within a project, not just the main repository. This approach ensures that the developer activity of a project is accurately represented, as important work may be done in other repositories. For example, if a website only tracks the
           <a
             class="text-blue-400"
             href="https://github.com/ethereum/go-ethereum"
             >go-ethereum</a
           >
-          repository in the Ethereum Github organization they would miss all the
-          work on other popular Ethereum cryptographic libraries.
+          repository within the Ethereum Github organization, it would fail to capture the activity on other popular Ethereum cryptographic libraries.
         </p>
       </div>
     </div>
@@ -40,11 +35,7 @@
       </div>
       <div class="text-xl flex justify-start text-left pb-5">
         <p>
-          Commits are made when a software developer wants to save the changes
-          they have made to the code of a particular project they are working
-          on, a commit may contain changes to thousands of lines of code or a
-          single line of code, and provides a snapshot of the changes a
-          developer makes.
+          A commit is a record of changes made by a software developer to the code of a project. It is a snapshot of the modifications made to the codebase. A commit can include changes to a single line or thousands of lines of code. It is a way for developers to save and track the progress of their work on a project.
         </p>
       </div>
     </div>
@@ -55,17 +46,7 @@
       </div>
       <div class="text-xl flex justify-start text-left pb-5">
         <p>
-          Counting commits alone is a very crude way to assess the developer
-          activity of a project, for example some developers may commit fairly
-          infrequently, but include large changes, whereas some developers
-          commit very frequently with small changes. In this case although the
-          overall end state of the development activity is the same CryptoCommit
-          will indicate and preference developers who make small commits
-          frequently. This is a fundamental flaw in the design of Cryptocommit,
-          however my hope is that the data here is only used as an initial
-          investigation point to dig deeper into project which may have high
-          indicated activity, instead of the sole basis for preferencing one
-          project over another.
+          Counting commits alone is an imprecise way to evaluate developer activity on a project. The frequency and size of commits can vary greatly among developers. For example, a developer who commits infrequently but includes large changes may be considered less active than a developer who commits frequently with small changes. Therefore, the data provided by Cryptocommit should be used as a starting point for further investigation, rather than being the sole basis for evaluating a project.
         </p>
       </div>
     </div>
@@ -77,7 +58,7 @@
       </div>
       <div class="text-xl flex justify-start text-left pb-5">
         <p>
-          The repository must be under the official organization account, and
+          The repository must be under the official organisation account, and
           have at least 20 Github ‘Stars’, for example
           <a
             class="text-blue-400"

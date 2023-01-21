@@ -1,7 +1,7 @@
 <template>
   <menuBar
     @projectSelected="processSearchSelection($event)"
-    @sortProjectsByCommits="sortProjectsByCommits"
+    @sortProjectsByCommits="sortProjectsByCommits(true)"
     @sortProjectsByWeighted="sortProjectsByWeighted"
     :projectList="projects.map((v) => v.title)"
     :showSorting="true"
@@ -133,7 +133,7 @@ export default {
     //fetch data using axios
     try {
       var response = await axios.get(
-        "http://127.0.0.1:8081/weeklyCoinCommitNumber.txt"
+        "https://cryptocommit.org/stats/weeklyCoinCommitNumber.txt"
       );
       this.projects = response.data;
       this.currentlyShowProjects = this.projects.slice(0, this.resultsPerPage);
@@ -141,7 +141,9 @@ export default {
       if (this.$route.query.page) {
         this.updatePage(this.$route.query.page);
       }
+
       this.calculateWeightedScore();
+      this.sortProjectsByCommits(false);
     } catch (error) {
       console.log("could not fetch chart data");
       console.log(error);
@@ -168,12 +170,15 @@ export default {
       window.scrollTo(0, 0);
     },
 
-    sortProjectsByCommits() {
+    sortProjectsByCommits(changePage) {
       this.showWeighted = false;
       this.projects.sort((a, b) => {
         return b.totalCommits - a.totalCommits;
       });
-      this.$refs.pageCounter.changePage(1);
+
+      if (changePage) {
+        this.$refs.pageCounter.changePage(1);
+      }
     },
 
     calculateWeightedScore() {
@@ -211,6 +216,7 @@ export default {
 
       await nextTick();
       this.$refs[projectName][0].scrollIntoView({});
+      window.scrollBy(0, -15);
       // this.scrollTo( this.$refs[projectName][0], 0, 600)
 
       //this API can be fed multiple coin at once
