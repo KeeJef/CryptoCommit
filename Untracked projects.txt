@@ -1,5 +1,0 @@
-Untracked projects
-
-Tezos --Gitlab
-Siacoin --Gitlab
-Ardor --Bitbucket
