@@ -962,5 +962,14 @@
   {
     "name": "NKN",
     "url": "https://github.com/nknorg"
+  },
+  {
+    "name": "Cellframe",
+    "url": "https://github.com/demlabs-cellframe"
+  },
+  {
+    "name": "xx network",
+    "url": "https://github.com/Elixxir-io",
+    "geckoIdentifier": "xxcoin"
   }
 ]
