@@ -14,14 +14,14 @@ var githubRepoArray = [];
 var parsedList = JSON.parse(readFileFromDisk("../assets/coreReposJSON.txt"));
 var fetchedRepos = await fetchList(parsedList);
 await getMarketData(fetchedRepos);
-writeToFile(path.resolve(__dirname, "../assets/fetchedRepoList.txt"),JSON.stringify(fetchedRepos));
+writeToFile(
+  path.resolve(__dirname, "../assets/fetchedRepoList.txt"),
+  JSON.stringify(fetchedRepos)
+);
 
 function readFileFromDisk(contentPath) {
   try {
-    const data = fs.readFileSync(
-      path.resolve(__dirname, contentPath),
-      "utf8"
-    );
+    const data = fs.readFileSync(path.resolve(__dirname, contentPath), "utf8");
     return data;
   } catch (err) {
     console.error(err);
@@ -43,7 +43,13 @@ async function fetchList(JSONList) {
     console.log("Fetching repos for: " + cryptoProject.name);
     var repos = await getRepos(cryptoProject.url);
     if (repos) {
-      githubRepoArray.push(await parseRepos(repos, cryptoProject.name, cryptoProject.geckoIdentifier));
+      githubRepoArray.push(
+        await parseRepos(
+          repos,
+          cryptoProject.name,
+          cryptoProject.geckoIdentifier
+        )
+      );
     }
   }
   return githubRepoArray;
@@ -88,7 +94,7 @@ async function getRepos(org) {
           var output = `Error fetching data for user ${org}\nRequest code was: ${error.code}\n${error.message}`;
           console.log(output);
         }
-        return
+        return;
       }
     } else {
       console.log(error);
@@ -99,20 +105,16 @@ async function getRepos(org) {
 async function dataRequest(type, org) {
   var requestURL = "";
 
-  if (type == 'organisation') {
+  if (type == "organisation") {
     requestURL = `https://api.github.com/orgs/${org}/repos?per_page=100`;
-  }
-  else{
+  } else {
     requestURL = `https://api.github.com/users/${org}/repos?per_page=100`;
   }
-  var response = await axios.get(
-    requestURL,
-    {
-      headers: {
-        Authorization: `token ${githubToken}`,
-      },
-    }
-  );
+  var response = await axios.get(requestURL, {
+    headers: {
+      Authorization: `token ${githubToken}`,
+    },
+  });
   //check if there are more pages
   if (response.headers.link) {
     //get the last page number
@@ -123,14 +125,11 @@ async function dataRequest(type, org) {
       .split(">")[0];
     //get all the pages
     for (var i = 2; i <= lastPage; i++) {
-      var response2 = await axios.get(
-        `${requestURL}&page=${i}`,
-        {
-          headers: {
-            Authorization: `token ${githubToken}`,
-          },
-        }
-      );
+      var response2 = await axios.get(`${requestURL}&page=${i}`, {
+        headers: {
+          Authorization: `token ${githubToken}`,
+        },
+      });
       response.data = response.data.concat(response2.data);
     }
   }
@@ -138,34 +137,43 @@ async function dataRequest(type, org) {
 }
 
 async function getMarketData(fetchedRepos) {
+  console.log("Fetching market data for " + fetchedRepos.length + " projects");
+  var geckoNameArray = [];
 
   for (let index = 0; index < fetchedRepos.length; index++) {
-
     var element = fetchedRepos[index].title.toLowerCase();
-    console.log("Getting market data for " + element);
 
     if (fetchedRepos[index].geckoIdentifier) {
       element = fetchedRepos[index].geckoIdentifier;
     }
 
+    geckoNameArray.push(element);
+  }
+
+
+  for (let index = 0; index < geckoNameArray.length; index++) {
+    
+    var chunk = geckoNameArray.slice(index,index + 250);
+    index = index + 250;
+    var geckoNameString = chunk.join(",");
+
     try {
       var response = await axios.get(
-        `https://api.coingecko.com/api/v3/simple/price?ids=${element}&vs_currencies=usd&include_market_cap=true`
+        `https://api.coingecko.com/api/v3/simple/price?ids=${geckoNameString}&vs_currencies=usd&include_market_cap=true`
       );
-      fetchedRepos[index].marketData = response.data[element].usd_market_cap;
-      console.log("Got market data for " + element + "Cap: " + fetchedRepos[index].marketData);
+      console.log(response.data);
+      var parsedResponse = Object.values(response.data);
+      for (let index = 0; index < parsedResponse.length; index++) {
+        const element = parsedResponse[index];
+        for (let index = 0; index < fetchedRepos.length; index++) {
+          const repo = fetchedRepos[index];
+          fetchedRepos[index].marketData = element.usd_market_cap;
+        }
+      }
     } catch (error) {
       console.log(error);
-        if(error.response.status == 429){
-            //wait 1 minute
-            console.log("waiting 1.1 minute for coingecko")
-            await new Promise(r => setTimeout(r, 65000));
-            index--;
-            continue
-        }
-      console.log("Could not get stats for " + element);
-      fetchedRepos[index].marketData = null;
     }
   }
+
   return;
 }
