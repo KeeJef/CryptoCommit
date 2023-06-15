@@ -969,7 +969,7 @@
   },
   {
     "name": "xx network",
-    "url": "https://github.com/Elixxir-io",
+    "url": "https://github.com/xxfoundation",
     "geckoIdentifier": "xxcoin"
   }
 ]
